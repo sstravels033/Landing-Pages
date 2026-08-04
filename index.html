@@ -3,128 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="sstravels - Let's escape! Budget-friendly, fun-filled weekend trips from Hyderabad for Gen-Z. Book your next adventure to Goa, Hampi, Araku, and more!">
+    <meta name="description" content="sstravels - Let's Escape! Budget-friendly weekend getaways from Hyderabad for Gen-Z. Safe trips to Goa, Hampi, Araku, Pondicherry & 30+ destinations. Book your seat now!">
+    <meta name="keywords" content="weekend trips hyderabad, budget travel, gen z travel, bachelor trips, safe travel india">
     <title>sstravels | Let's Escape</title>
-    
-    <!-- PWA Manifest for Home Screen Installation -->
+
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1a1a2e">
+    <meta name="theme-color" content="#ff2d55">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="assets/icon-192.png">
-    
-    <!-- Google Fonts -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-192.png">
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">ss<span>travels</span></div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+            <p class="loader-text">loading your next escape...</p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Three.js Canvas Background -->
+    <canvas id="hero-canvas"></canvas>
+
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">ss<span>travels</span></a>
-            <div class="nav-links">
-                <a href="#trips" class="nav-link">Trips</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="sstravels logo - stylized 'ss' letters in neon pink gradient forming an infinity loop with 'travels' in clean white modern font, set against dark background" class="logo-img">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-link" data-text="Home">Home</a>
+                <a href="#map-section" class="nav-link" data-text="Explore">Explore</a>
+                <a href="#trips" class="nav-link" data-text="Trips">Trips</a>
+                <a href="#safety" class="nav-link" data-text="Safety">Safety</a>
+                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#map-section" class="mobile-link">Explore</a>
+            <a href="#trips" class="mobile-link">Trips</a>
+            <a href="#safety" class="mobile-link">Safety</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-overlay"></div>
+    <header id="hero" class="hero">
         <div class="hero-content">
-            <h1 class="glitch" data-text="sstravels - lets escape">sstravels - lets escape</h1>
-            <p class="subtitle">Curated weekend getaways from Hyderabad for the young and restless. Make friends, explore safely, and vibe.</p>
-            <a href="#trips" class="cta-btn primary-btn">View All Trips <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Weekend getaways from Hyderabad
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line" data-animate="reveal">ss<span class="highlight">travels</span></span>
+                <span class="title-line title-tagline" data-animate="reveal">let's escape</span>
+            </h1>
+            <p class="hero-subtitle" data-animate="fade">Budget-friendly trips for young souls. Make friends, explore safely, come back by Sunday night.</p>
+            <div class="hero-cta" data-animate="fade">
+                <a href="#trips" class="btn btn-primary magnetic">
+                    <span>View All Trips</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#map-section" class="btn btn-glass magnetic">
+                    <span>Explore Map</span>
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </a>
+            </div>
+            <div class="hero-stats" data-animate="fade">
+                <div class="stat">
+                    <span class="stat-num" data-count="30">0</span>+
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num" data-count="500">0</span>+
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num" data-count="100">0</span>%
+                    <span class="stat-label">Safe Returns</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
         </div>
     </header>
 
+    <!-- Interactive Map Section -->
+    <section id="map-section" class="map-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Explore</span>
+                <h2 class="section-title" data-animate="reveal">Your Weekend Map</h2>
+                <p class="section-subtitle">30+ destinations, all reachable from Hyderabad in a weekend</p>
+            </div>
+            <div class="map-wrapper">
+                <svg id="india-map" viewBox="0 0 800 900" class="india-map" aria-label="Interactive map of India showing travel routes from Hyderabad to 30+ weekend destinations including Goa, Hampi, Araku Valley, Pondicherry, and more, with animated dotted lines connecting each route">
+                    <!-- India outline (simplified) -->
+                    <path class="india-outline" d="M400,50 C420,55 480,60 520,80 C560,100 600,110 620,140 C640,170 660,180 670,210 C680,240 690,260 700,290 C710,320 720,350 715,380 C710,410 700,440 690,470 C680,500 670,520 660,540 C650,560 640,580 620,600 C600,620 580,640 560,660 C540,680 520,700 500,720 C480,740 460,760 440,770 C420,780 400,790 380,785 C360,780 340,770 320,760 C300,750 280,730 260,710 C240,690 220,670 200,640 C180,610 170,580 160,550 C150,520 140,490 135,460 C130,430 130,400 135,370 C140,340 150,310 160,280 C170,250 180,220 200,200 C220,180 240,160 260,140 C280,120 300,100 330,80 C360,60 380,45 400,50 Z" />
+
+                    <!-- Hyderabad (center point) -->
+                    <circle class="city-dot city-hub" cx="420" cy="480" r="8" data-city="Hyderabad" />
+                    <text x="420" y="500" class="city-label hub-label">HYDERABAD</text>
+
+                    <!-- Destination dots and routes -->
+                    <g class="routes-group">
+                        <!-- Goa -->
+                        <line class="route-line" x1="420" y1="480" x2="300" y2="520" data-dest="goa"/>
+                        <circle class="city-dot" cx="300" cy="520" r="5" data-city="Goa"/>
+                        <text x="280" y="540" class="city-label">Goa</text>
+
+                        <!-- Hampi -->
+                        <line class="route-line" x1="420" y1="480" x2="350" y2="510" data-dest="hampi"/>
+                        <circle class="city-dot" cx="350" cy="510" r="5" data-city="Hampi"/>
+                        <text x="330" y="528" class="city-label">Hampi</text>
+
+                        <!-- Araku -->
+                        <line class="route-line" x1="420" y1="480" x2="500" y2="450" data-dest="araku"/>
+                        <circle class="city-dot" cx="500" cy="450" r="5" data-city="Araku"/>
+                        <text x="510" y="450" class="city-label">Araku</text>
+
+                        <!-- Chirala -->
+                        <line class="route-line" x1="420" y1="480" x2="430" y2="550" data-dest="chirala"/>
+                        <circle class="city-dot" cx="430" cy="550" r="5" data-city="Chirala"/>
+                        <text x="440" y="565" class="city-label">Chirala</text>
+
+                        <!-- Warangal -->
+                        <line class="route-line" x1="420" y1="480" x2="450" y2="440" data-dest="warangal"/>
+                        <circle class="city-dot" cx="450" cy="440" r="5" data-city="Warangal"/>
+                        <text x="460" y="435" class="city-label">Warangal</text>
+
+                        <!-- Pondicherry -->
+                        <line class="route-line" x1="420" y1="480" x2="420" y2="620" data-dest="pondicherry"/>
+                        <circle class="city-dot" cx="420" cy="620" r="5" data-city="Pondicherry"/>
+                        <text x="430" y="635" class="city-label">Pondi</text>
+
+                        <!-- Gandikota -->
+                        <line class="route-line" x1="420" y1="480" x2="390" y2="530" data-dest="gandikota"/>
+                        <circle class="city-dot" cx="390" cy="530" r="5" data-city="Gandikota"/>
+                        <text x="365" y="548" class="city-label">Gandikota</text>
+
+                        <!-- Vizag -->
+                        <line class="route-line" x1="420" y1="480" x2="530" y2="420" data-dest="vizag"/>
+                        <circle class="city-dot" cx="530" cy="420" r="5" data-city="Vizag"/>
+                        <text x="540" y="418" class="city-label">Vizag</text>
+
+                        <!-- Srisailam -->
+                        <line class="route-line" x1="420" y1="480" x2="400" y2="510" data-dest="srisailam"/>
+                        <circle class="city-dot" cx="400" cy="510" r="5" data-city="Srisailam"/>
+                        <text x="375" y="525" class="city-label">Srisailam</text>
+
+                        <!-- Coorg -->
+                        <line class="route-line" x1="420" y1="480" x2="320" y2="580" data-dest="coorg"/>
+                        <circle class="city-dot" cx="320" cy="580" r="5" data-city="Coorg"/>
+                        <text x="295" y="595" class="city-label">Coorg</text>
+
+                        <!-- Mysore -->
+                        <line class="route-line" x1="420" y1="480" x2="340" y2="590" data-dest="mysore"/>
+                        <circle class="city-dot" cx="340" cy="590" r="5" data-city="Mysore"/>
+                        <text x="320" y="607" class="city-label">Mysore</text>
+
+                        <!-- Ooty -->
+                        <line class="route-line" x1="420" y1="480" x2="350" y2="620" data-dest="ooty"/>
+                        <circle class="city-dot" cx="350" cy="620" r="5" data-city="Ooty"/>
+                        <text x="330" y="638" class="city-label">Ooty</text>
+
+                        <!-- Munnar -->
+                        <line class="route-line" x1="420" y1="480" x2="360" y2="650" data-dest="munnar"/>
+                        <circle class="city-dot" cx="360" cy="650" r="5" data-city="Munnar"/>
+                        <text x="340" y="668" class="city-label">Munnar</text>
+
+                        <!-- Gokarna -->
+                        <line class="route-line" x1="420" y1="480" x2="290" y2="545" data-dest="gokarna"/>
+                        <circle class="city-dot" cx="290" cy="545" r="5" data-city="Gokarna"/>
+                        <text x="260" y="560" class="city-label">Gokarna</text>
+
+                        <!-- Dandeli -->
+                        <line class="route-line" x1="420" y1="480" x2="310" y2="500" data-dest="dandeli"/>
+                        <circle class="city-dot" cx="310" cy="500" r="5" data-city="Dandeli"/>
+                        <text x="280" y="498" class="city-label">Dandeli</text>
+
+                        <!-- Chikmagalur -->
+                        <line class="route-line" x1="420" y1="480" x2="330" y2="560" data-dest="chikmagalur"/>
+                        <circle class="city-dot" cx="330" cy="560" r="5" data-city="Chikmagalur"/>
+                        <text x="295" y="572" class="city-label">Chikmagalur</text>
+
+                        <!-- Horsley Hills -->
+                        <line class="route-line" x1="420" y1="480" x2="400" y2="545" data-dest="horsley"/>
+                        <circle class="city-dot" cx="400" cy="545" r="5" data-city="Horsley Hills"/>
+                        <text x="405" y="560" class="city-label">Horsley</text>
+
+                        <!-- Lambasingi -->
+                        <line class="route-line" x1="420" y1="480" x2="490" y2="440" data-dest="lambasingi"/>
+                        <circle class="city-dot" cx="490" cy="440" r="5" data-city="Lambasingi"/>
+                        <text x="498" y="432" class="city-label">Lambasingi</text>
+
+                        <!-- Ananthagiri -->
+                        <line class="route-line" x1="420" y1="480" x2="405" y2="465" data-dest="ananthagiri"/>
+                        <circle class="city-dot" cx="405" cy="465" r="5" data-city="Ananthagiri"/>
+                        <text x="380" y="458" class="city-label">Ananthagiri</text>
+
+                        <!-- Belum Caves -->
+                        <line class="route-line" x1="420" y1="480" x2="400" y2="540" data-dest="belum"/>
+                        <circle class="city-dot" cx="400" cy="540" r="4" data-city="Belum Caves"/>
+
+                        <!-- Lepakshi -->
+                        <line class="route-line" x1="420" y1="480" x2="385" y2="500" data-dest="lepakshi"/>
+                        <circle class="city-dot" cx="385" cy="500" r="4" data-city="Lepakshi"/>
+
+                        <!-- Nagarjuna Sagar -->
+                        <line class="route-line" x1="420" y1="480" x2="435" y2="505" data-dest="nagarjuna"/>
+                        <circle class="city-dot" cx="435" cy="505" r="4" data-city="Nagarjuna Sagar"/>
+
+                        <!-- Kodaikanal -->
+                        <line class="route-line" x1="420" y1="480" x2="370" y2="640" data-dest="kodaikanal"/>
+                        <circle class="city-dot" cx="370" cy="640" r="5" data-city="Kodaikanal"/>
+                        <text x="375" y="655" class="city-label">Kodai</text>
+
+                        <!-- Alleppey -->
+                        <line class="route-line" x1="420" y1="480" x2="340" y2="670" data-dest="alleppey"/>
+                        <circle class="city-dot" cx="340" cy="670" r="5" data-city="Alleppey"/>
+                        <text x="315" y="685" class="city-label">Alleppey</text>
+
+                        <!-- Mahabalipuram -->
+                        <line class="route-line" x1="420" y1="480" x2="430" y2="600" data-dest="mahabalipuram"/>
+                        <circle class="city-dot" cx="430" cy="600" r="4" data-city="Mahabalipuram"/>
+
+                        <!-- Dudhsagar -->
+                        <line class="route-line" x1="420" y1="480" x2="290" y2="530" data-dest="dudhsagar"/>
+                        <circle class="city-dot" cx="290" cy="530" r="4" data-city="Dudhsagar"/>
+
+                        <!-- Mantralayam -->
+                        <line class="route-line" x1="420" y1="480" x2="375" y2="510" data-dest="mantralayam"/>
+                        <circle class="city-dot" cx="375" cy="510" r="4" data-city="Mantralayam"/>
+
+                        <!-- Ahobilam -->
+                        <line class="route-line" x1="420" y1="480" x2="410" y2="530" data-dest="ahobilam"/>
+                        <circle class="city-dot" cx="410" cy="530" r="4" data-city="Ahobilam"/>
+
+                        <!-- Ethipothala -->
+                        <line class="route-line" x1="420" y1="480" x2="430" y2="500" data-dest="ethipothala"/>
+                        <circle class="city-dot" cx="430" cy="500" r="4" data-city="Ethipothala"/>
+
+                        <!-- Kudremukh -->
+                        <line class="route-line" x1="420" y1="480" x2="310" y2="560" data-dest="kudremukh"/>
+                        <circle class="city-dot" cx="310" cy="560" r="4" data-city="Kudremukh"/>
+                    </g>
+                </svg>
+                <div class="map-glow"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trips Section -->
     <section id="trips" class="trips-section">
-        <div class="section-header">
-            <h2>Upcoming Escapes</h2>
-            <p>Grab your seat before they're gone!</p>
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Book Now</span>
+                <h2 class="section-title" data-animate="reveal">Upcoming Escapes</h2>
+                <p class="section-subtitle">Grab your seat before they fill up. Per-seat pricing, no hassle.</p>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Trips</button>
+                <button class="filter-btn" data-filter="beach">Beaches</button>
+                <button class="filter-btn" data-filter="mountain">Mountains</button>
+                <button class="filter-btn" data-filter="heritage">Heritage</button>
+                <button class="filter-btn" data-filter="adventure">Adventure</button>
+            </div>
+
+            <!-- Trips Grid -->
+            <div class="trips-grid" id="trips-grid">
+                <!-- Cards injected by JS -->
+            </div>
+
+            <div class="load-more-wrapper">
+                <button class="btn btn-glass load-more-btn" id="load-more">
+                    <span>Load More Trips</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
         </div>
-        
-        <div class="trips-grid">
-            <!-- Trip Card 1: Goa -->
-            <div class="trip-card">
-                <div class="card-img-wrapper">
-                    <img src="assets/goa.jpg" alt="Goa Trip" loading="lazy">
-                    <div class="badge">Trending</div>
+    </section>
+
+    <!-- Safety Section -->
+    <section id="safety" class="safety-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Your Safety First</span>
+                <h2 class="section-title" data-animate="reveal">Travel Safe, Travel Smart</h2>
+                <p class="section-subtitle">We take your safety seriously. Here's our promise to you.</p>
+            </div>
+            <div class="safety-grid">
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Verified Drivers</h3>
+                    <p>All drivers are background-verified with years of experience on these exact routes.</p>
                 </div>
-                <div class="card-content">
-                    <h3>Goa Beach Party</h3>
-                    <div class="trip-details">
-                        <span><i class="fa-regular fa-calendar"></i> This Weekend</span>
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 6,000 / seat</span>
-                    </div>
-                    <p class="description">Sun, sand, and unforgettable nights. Safe, budget-friendly trip for bachelors & bachelorettes.</p>
-                    <div class="card-actions">
-                        <button class="book-btn" onclick="bookTrip('Goa Beach Party')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
-                        <button class="share-btn" onclick="shareTrip('Goa Beach Party')"><i class="fa-solid fa-share-nodes"></i></button>
-                    </div>
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                    <h3>Live Tracking</h3>
+                    <p>Share your live location with family. Real-time updates throughout the trip.</p>
+                </div>
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Group Safety</h3>
+                    <p>Travel in groups. Our trip coordinators are always present for your comfort.</p>
+                </div>
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Emergency helpline active round the clock. One call and we're there.</p>
+                </div>
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-hotel"></i></div>
+                    <h3>Safe Stays</h3>
+                    <p>Handpicked hotels and campsites. Separate arrangements for boys and girls.</p>
+                </div>
+                <div class="safety-card" data-animate="slide-up">
+                    <div class="safety-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Rated Trips</h3>
+                    <p>Every trip rated by past travelers. Transparent reviews you can trust.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Trip Card 2: Hampi -->
-            <div class="trip-card">
-                <div class="card-img-wrapper">
-                    <img src="assets/hampi.jpg" alt="Hampi Trip" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>Hampi Heritage & Tents</h3>
-                    <div class="trip-details">
-                        <span><i class="fa-regular fa-calendar"></i> Next Weekend</span>
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 4,500 / seat</span>
-                    </div>
-                    <p class="description">Explore ancient ruins by day, camp under the stars by night. A surreal escape from the city.</p>
-                    <div class="card-actions">
-                        <button class="book-btn" onclick="bookTrip('Hampi Heritage & Tents')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
-                        <button class="share-btn" onclick="shareTrip('Hampi Heritage & Tents')"><i class="fa-solid fa-share-nodes"></i></button>
-                    </div>
-                </div>
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Simple</span>
+                <h2 class="section-title" data-animate="reveal">How It Works</h2>
             </div>
-
-            <!-- Trip Card 3: Araku -->
-            <div class="trip-card">
-                <div class="card-img-wrapper">
-                    <img src="assets/araku.jpg" alt="Araku Valley" loading="lazy">
+            <div class="steps-grid">
+                <div class="step-card" data-animate="slide-up">
+                    <div class="step-number">01</div>
+                    <h3>Pick a Trip</h3>
+                    <p>Browse destinations and dates that work for your weekend.</p>
                 </div>
-                <div class="card-content">
-                    <h3>Araku Valley Vibes</h3>
-                    <div class="trip-details">
-                        <span><i class="fa-regular fa-calendar"></i> In 2 Weeks</span>
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 5,000 / seat</span>
-                    </div>
-                    <p class="description">Lush green valleys, misty mornings, and fresh coffee. Perfect nature retreat to recharge.</p>
-                    <div class="card-actions">
-                        <button class="book-btn" onclick="bookTrip('Araku Valley Vibes')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
-                        <button class="share-btn" onclick="shareTrip('Araku Valley Vibes')"><i class="fa-solid fa-share-nodes"></i></button>
-                    </div>
+                <div class="step-card" data-animate="slide-up">
+                    <div class="step-number">02</div>
+                    <h3>Book Your Seat</h3>
+                    <p>Message us on WhatsApp. Pay per seat via UPI. Done.</p>
                 </div>
-            </div>
-
-            <!-- Trip Card 4: Chirala -->
-            <div class="trip-card">
-                <div class="card-img-wrapper">
-                    <img src="assets/chirala.jpg" alt="Chirala Beach" loading="lazy">
-                </div>
-                <div class="card-content">
-                    <h3>Chirala Beach Camping</h3>
-                    <div class="trip-details">
-                        <span><i class="fa-regular fa-calendar"></i> In 3 Weeks</span>
-                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 3,500 / seat</span>
-                    </div>
-                    <p class="description">Bonfires, music, and ocean waves. The perfect quick weekend getaway from Hyderabad.</p>
-                    <div class="card-actions">
-                        <button class="book-btn" onclick="bookTrip('Chirala Beach Camping')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
-                        <button class="share-btn" onclick="shareTrip('Chirala Beach Camping')"><i class="fa-solid fa-share-nodes"></i></button>
-                    </div>
+                <div class="step-card" data-animate="slide-up">
+                    <div class="step-number">03</div>
+                    <h3>Pack & Go</h3>
+                    <p>Show up at the pickup point. We handle the rest.</p>
                 </div>
             </div>
         </div>
@@ -132,31 +397,64 @@
 
     <!-- Footer -->
     <footer id="contact" class="footer">
-        <div class="footer-content">
-            <h2 class="footer-logo">ss<span>travels</span></h2>
-            <p>Your safety is our priority. Join the community, make friends, and travel stress-free.</p>
-            <div class="contact-info">
-                <a href="https://wa.me/918409358131" target="_blank" class="contact-link"><i class="fa-brands fa-whatsapp"></i> +91-8409358131</a>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="sstravels logo - neon pink infinity loop 'ss' with modern white 'travels' text on dark background" class="footer-logo-img">
+                    <p>Weekend escapes from Hyderabad for young, adventurous souls. Safe, affordable, unforgettable.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#trips">All Trips</a>
+                    <a href="#safety">Safety</a>
+                    <a href="#map-section">Explore</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://wa.me/918409358131" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter/X</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="tel:+918409358131"><i class="fa-solid fa-phone"></i> +91-8409358131</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</a>
+                </div>
             </div>
-            <div class="socials">
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 sstravels. All rights reserved. Made with <span class="heart">&hearts;</span> in Hyderabad.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 sstravels. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Install App Prompt Modal -->
-    <div id="install-modal" class="modal glass-panel">
-        <div class="modal-content">
-            <h3>Add sstravels to Home Screen?</h3>
-            <p>Install our app for quicker access to the latest trips and easier sharing with friends!</p>
-            <div class="modal-actions">
-                <button id="install-btn" class="primary-btn">Install App</button>
-                <button id="close-modal-btn" class="secondary-btn">Maybe Later</button>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918409358131?text=Hey%20sstravels!%20I%20want%20to%20know%20about%20upcoming%20trips." target="_blank" class="floating-whatsapp" id="floating-wa" aria-label="Contact us on WhatsApp">
+        <div class="wa-pulse"></div>
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Trip Detail Modal -->
+    <div class="trip-modal" id="trip-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Close trip details"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" id="modal-body">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Install PWA Modal -->
+    <div id="install-modal" class="install-modal">
+        <div class="install-content">
+            <div class="install-icon"><i class="fa-solid fa-download"></i></div>
+            <h3>Add to Home Screen</h3>
+            <p>Get instant access to trips, notifications, and faster loading!</p>
+            <div class="install-actions">
+                <button id="install-btn" class="btn btn-primary">Install App</button>
+                <button id="dismiss-install" class="btn btn-ghost">Not now</button>
             </div>
         </div>
     </div>
