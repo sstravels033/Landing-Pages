@@ -38,7 +38,10 @@ const cities = {
     Pench: [79.2483, 21.6577],
     Kuntala: [78.4833, 19.3000],
     Ajanta: [75.3182, 19.8762],
-    Nanded: [77.3090, 19.1492]
+    Nanded: [77.3090, 19.1492],
+    Varanasi: [83.0039, 25.3176],
+    Prayagraj: [81.8463, 25.4358],
+    Ayodhya: [82.1998, 26.7922]
 };
 
 https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.geojson', (resp) => {
