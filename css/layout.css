@@ -1486,8 +1486,8 @@ ul { list-style: none; }
     .card-actions { flex-direction: row; gap: 0.5rem; }
     .card-btn-book { flex-grow: 1; padding: 1rem; }
     .card-btn-share { width: auto; padding: 1rem 1.2rem; }
-    .filter-tabs { gap: 0.5rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.5rem; justify-content: flex-start; scrollbar-width: none; }
-    .filter-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; flex-shrink: 0; }
+    .filter-tabs { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .filter-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
     .hero-title { font-size: 3.5rem; }
     .section-title { font-size: 2.2rem; }
     .trips-grid { gap: 1.2rem; }
