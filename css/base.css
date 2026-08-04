@@ -13,12 +13,31 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--bg-primary);
+    background: transparent;
     color: var(--text-primary);
     overflow-x: hidden;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -5%; left: -5%; right: -5%; bottom: -5%;
+    background: url('https://picsum.photos/seed/sstravels/1920/1080') no-repeat center center;
+    background-size: cover;
+    filter: blur(25px) brightness(1.1);
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.45);
+    z-index: -1;
 }
 
 body.loading {
