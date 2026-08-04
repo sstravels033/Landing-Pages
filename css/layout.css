@@ -1642,13 +1642,23 @@ body::after {
     border: none;
 }
 .float-fb {
-    color: #1877F2;
+    color: #fff;
+    background: #1877F2;
+    border: none;
 }
 .float-wa {
-    color: #25D366;
+    color: #fff;
+    background: #25D366;
+    border: none;
 }
-.float-yt { color: #FF0000; }
+.float-yt {
+    color: #fff;
+    background: #FF0000;
+    border: none;
+}
 .float-install {
-    color: var(--accent-pink);
+    color: #fff;
+    background: var(--accent-pink);
+    border: none;
 }
 

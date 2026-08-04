@@ -103,11 +103,11 @@ trips.forEach(trip => {
 
     <script src="../js/trip.js"></script>
     <div class="floating-action-bar">
+        <button class="float-btn float-install" id="float-install-btn" title="Install App"><i class="fa-solid fa-download"></i></button>
+        <a href="#" class="float-btn float-yt"><i class="fa-brands fa-youtube"></i></a>
         <a href="#" class="float-btn float-ig"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" class="float-btn float-fb"><i class="fa-brands fa-facebook"></i></a>
         <a href="https://wa.me/918409358131?text=Hey%20sstravels!%20I%20want%20to%20know%20about%20upcoming%20trips." target="_blank" class="float-btn float-wa"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#" class="float-btn float-yt"><i class="fa-brands fa-youtube"></i></a>
-        <button class="float-btn float-install" id="float-install-btn" title="Install App"><i class="fa-solid fa-download"></i></button>
     </div>
 </body>
 </html>`;
@@ -137,4 +137,5 @@ let scriptJs = fs.readFileSync('script.js', 'utf8');
 scriptJs = scriptJs.replace(/openTripModal\(trip\);/g, "window.location.href = 'trips/' + trip.id + '.html';");
 fs.writeFileSync('script.js', scriptJs);
 console.log('Updated script.js to navigate to trip pages');
+
 
