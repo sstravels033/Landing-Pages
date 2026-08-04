@@ -1,6 +1,7 @@
 const d3 = require('d3-geo');
 const fs = require('fs');
 const https = require('https');
+const sharp = require('sharp');
 
 const cities = {
     Hyderabad: [78.4867, 17.3850],
@@ -47,7 +48,7 @@ const cities = {
 https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.geojson', (resp) => {
     let data = '';
     resp.on('data', (chunk) => { data += chunk; });
-    resp.on('end', () => {
+    resp.on('end', async () => {
         try {
             const geojson = JSON.parse(data);
             const width = 800;
@@ -65,28 +66,60 @@ https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-
 
             const hyd = projection(cities.Hyderabad);
 
-            let svgHtml = '<svg id="india-map" viewBox="0 0 ' + width + ' ' + height + '" class="india-map">';
-            svgHtml += '<path class="india-outline" d="' + svgPath.trim() + '" />';
-            svgHtml += '<circle class="city-dot city-hub" cx="' + hyd[0] + '" cy="' + hyd[1] + '" r="8" data-city="Hyderabad" />';
-            svgHtml += '<text x="' + hyd[0] + '" y="' + (hyd[1] + 20) + '" class="city-label hub-label">HYDERABAD</text>';
-            svgHtml += '<g class="routes-group">';
+            const svgStyles = `
+                <style>
+                    .india-outline { fill: none; stroke: #12121a; stroke-width: 4; opacity: 0.85; }
+                    .city-dot { fill: #00b8d4; opacity: 0.8; }
+                    .city-hub { fill: #ff2d55; }
+                    .city-label { fill: #3d3d4e; font-size: 10px; font-family: sans-serif; text-anchor: middle; font-weight: bold; }
+                    .hub-label { font-size: 14px; fill: #ff2d55; }
+                    .route-line { stroke: #00b8d4; stroke-width: 1.5; stroke-dasharray: 4 4; opacity: 0.5; }
+                </style>
+            `;
 
+            let svgHtml = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + width + ' ' + height + '">';
+            svgHtml += svgStyles;
+            svgHtml += '<path class="india-outline" d="' + svgPath.trim() + '" />';
+            
+            // Draw routes first so they are under dots
             for (const [city, coords] of Object.entries(cities)) {
                 if (city === 'Hyderabad') continue;
                 const pt = projection(coords);
-                svgHtml += '<line class="route-line" x1="' + hyd[0] + '" y1="' + hyd[1] + '" x2="' + pt[0] + '" y2="' + pt[1] + '" data-dest="' + city.toLowerCase() + '" />';
-                svgHtml += '<circle class="city-dot" cx="' + pt[0] + '" cy="' + pt[1] + '" r="5" data-city="' + city + '" />';
+                svgHtml += '<line class="route-line" x1="' + hyd[0] + '" y1="' + hyd[1] + '" x2="' + pt[0] + '" y2="' + pt[1] + '" />';
+            }
+
+            // Draw hub
+            svgHtml += '<circle class="city-dot city-hub" cx="' + hyd[0] + '" cy="' + hyd[1] + '" r="8" />';
+            svgHtml += '<text x="' + hyd[0] + '" y="' + (hyd[1] + 20) + '" class="city-label hub-label">HYDERABAD</text>';
+            
+            // Draw destination dots and labels
+            for (const [city, coords] of Object.entries(cities)) {
+                if (city === 'Hyderabad') continue;
+                const pt = projection(coords);
+                svgHtml += '<circle class="city-dot" cx="' + pt[0] + '" cy="' + pt[1] + '" r="5" />';
                 svgHtml += '<text x="' + pt[0] + '" y="' + (pt[1] + 15) + '" class="city-label">' + city + '</text>';
             }
 
-            svgHtml += '</g></svg>';
+            svgHtml += '</svg>';
 
+            // Rasterize SVG into a highly compressed WebP image
+            const imagePath = 'assets/india-map.webp';
+            await sharp(Buffer.from(svgHtml))
+                .webp({ quality: 80 })
+                .toFile(imagePath);
+            console.log('Successfully generated ' + imagePath);
+
+            // Update index.html to use the generated image instead of inline SVG
             let html = fs.readFileSync('index.html', 'utf8');
-            html = html.replace(/<svg id="india-map"[\s\S]*?<\/svg>/, svgHtml);
+            const imgTag = '<img src="assets/india-map.webp" id="india-map" class="india-map" alt="Map of trips" loading="lazy">';
+            
+            // Replace either existing SVG or existing IMG tag
+            html = html.replace(/<svg id="india-map"[\s\S]*?<\/svg>|<img[^>]*id="india-map"[^>]*>/, imgTag);
             fs.writeFileSync('index.html', html);
-            console.log('Successfully updated index.html with accurate India SVG map');
+            console.log('Successfully updated index.html to use the lightweight WebP map');
+            
         } catch(e) {
-            console.log('Failed to parse geojson', e);
+            console.log('Error generating map:', e);
         }
     });
 }).on("error", (err) => {

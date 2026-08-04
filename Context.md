@@ -38,3 +38,9 @@ sharing should be really easy, - shareit button on every trip
 
 these trips must have dates, pack the next weeks starting this weekend
 
+## Map Generator Pipeline
+To add a new location to the India map:
+1. Open `generate-map.js` and add the city name and coordinates `[longitude, latitude]` to the `cities` object.
+2. Run `node generate-map.js` in the CLI.
+3. The script will automatically parse the India GeoJSON, draw the routes from Hyderabad, rasterize the heavy SVG map into a highly compressed WebP image (`assets/india-map.webp`) using `sharp`, and update `index.html` to display this lightweight image.
+This static image approach completely prevents the massive inline SVG code from blocking the HTML rendering, drastically speeding up the site's load time.
