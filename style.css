@@ -745,6 +745,9 @@ ul { list-style: none; }
     cursor: pointer;
     opacity: 0;
     transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .trip-card.visible {
@@ -812,13 +815,16 @@ ul { list-style: none; }
 
 .card-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-title {
-    font-family: var(--font-display);
     font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
 }
 
 .card-meta {
@@ -851,7 +857,66 @@ ul { list-style: none; }
 
 .card-actions {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Collapsible Expanded Content */
+.card-expanded-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+    opacity: 0;
+    background: rgba(0,0,0,0.2);
+    margin: 0 -1.5rem -1.5rem -1.5rem;
+    padding: 0 1.5rem;
+    border-top: 1px solid transparent;
+}
+
+.trip-card.expanded .card-expanded-content {
+    max-height: 800px;
+    opacity: 1;
+    padding: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.expanded-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.expanded-highlights li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.expanded-highlights li i {
+    color: var(--accent-primary);
+    margin-top: 0.2rem;
+}
+
+.expand-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+    background: rgba(0,0,0,0.4);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trip-card.expanded .expand-icon {
+    transform: rotate(180deg);
 }
 
 .card-btn {

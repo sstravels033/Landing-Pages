@@ -465,6 +465,11 @@
             card.setAttribute('data-category', trip.category);
             card.style.transitionDelay = (idx * 0.05) + 's';
 
+            let highlightsHtml = "";
+            trip.highlights.forEach(function(h) {
+                highlightsHtml += "<li><i class='fa-solid fa-check-circle'></i> " + h + "</li>";
+            });
+
             card.innerHTML = '\
                 <div class="card-image">\
                     <img src="' + trip.image + '" alt="' + trip.alt + '" loading="lazy">\
@@ -479,15 +484,20 @@
                         <span><i class="fa-solid fa-campground"></i> ' + trip.stay + '</span>\
                     </div>\
                     <p class="card-desc">' + trip.desc + '</p>\
+                    <div class="card-expanded-content">\
+                        <ul class="expanded-highlights">' + highlightsHtml + '</ul>\
+                        <div style="margin-bottom: 1rem;"><a href="trips/' + trip.id + '.html" style="color:var(--accent-primary);text-decoration:none;font-size:0.9rem;">View Full Details &rarr;</a></div>\
+                    </div>\
                     <div class="card-actions">\
                         <button class="card-btn card-btn-book" data-trip="' + trip.id + '"><i class="fa-brands fa-whatsapp"></i> Book Seat</button>\
-                        <button class="card-btn card-btn-share" data-trip-name="' + trip.name + '"><i class="fa-solid fa-share-nodes"></i></button>\
+                        <button class="card-btn card-btn-share" data-trip-name="' + trip.name + '" data-trip-url="trips/' + trip.id + '.html"><i class="fa-solid fa-share-nodes"></i></button>\
                     </div>\
+                    <div class="expand-icon"><i class="fa-solid fa-chevron-down"></i></div>\
                 </div>';
 
             card.addEventListener('click', function (e) {
-                if (!e.target.closest('.card-btn')) {
-                    window.location.href = 'trips/' + trip.id + '.html';
+                if (!e.target.closest('.card-btn') && !e.target.closest('a')) {
+                    card.classList.toggle('expanded');
                 }
             });
 
@@ -516,7 +526,7 @@
         document.querySelectorAll('.card-btn-share').forEach(function (btn) {
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
-                shareTrip(btn.getAttribute('data-trip-name'));
+                shareTrip(btn.getAttribute('data-trip-name'), btn.getAttribute('data-trip-url'));
             });
         });
     }
@@ -597,11 +607,12 @@
         window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
     }
 
-    function shareTrip(tripName) {
+    function shareTrip(tripName, tripUrl) {
+        var url = tripUrl ? (window.location.href.split('index.html')[0] + tripUrl) : window.location.href;
         var shareData = {
             title: tripName + ' - sstravels',
-            text: 'Hey! Check out this trip: ' + tripName + ' by sstravels. Budget-friendly weekend escape from Hyderabad! 🚀',
-            url: window.location.href,
+            text: 'Hey! Check out this trip to ' + tripName + ' with sstravels! 🚀',
+            url: url
         };
         if (navigator.share) {
             navigator.share(shareData).catch(function () {});
