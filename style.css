@@ -3,19 +3,19 @@
    ============================================ */
 
 :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-card: rgba(255, 255, 255, 0.02);
+    --bg-primary: #050508;
+    --bg-secondary: #0a0a14;
+    --bg-card: rgba(255, 255, 255, 0.03);
     --text-primary: #ffffff;
-    --text-secondary: #8b8b9e;
-    --text-muted: #5a5a6e;
-    --accent-pink: #ff2d55;
-    --accent-cyan: #00e5ff;
-    --accent-purple: #7c3aed;
-    --accent-orange: #ff6b35;
-    --accent-green: #00c853;
-    --gradient-primary: linear-gradient(135deg, #ff2d55, #ff6b35);
-    --gradient-secondary: linear-gradient(135deg, #00e5ff, #7c3aed);
+    --text-secondary: #a0a0bd;
+    --text-muted: #6b6b85;
+    --accent-pink: #ff0055;
+    --accent-cyan: #00f0ff;
+    --accent-purple: #a600ff;
+    --accent-orange: #ff3300;
+    --accent-green: #00ff66;
+    --gradient-primary: linear-gradient(135deg, #ff0055, #ff3300);
+    --gradient-secondary: linear-gradient(135deg, #00f0ff, #a600ff);
     --gradient-card: linear-gradient(135deg, rgba(255, 45, 85, 0.1), rgba(124, 58, 237, 0.05));
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -1481,11 +1481,15 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
     .hero-cta { flex-direction: column; align-items: stretch; }
-    .btn { justify-content: center; }
-    .card-actions { flex-direction: column; }
-    .card-btn-share { width: 100%; }
-    .filter-tabs { gap: 0.5rem; }
-    .filter-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    .btn { justify-content: center; width: 100%; font-size: 1.1rem; padding: 1.2rem 2rem; }
+    .card-actions { flex-direction: row; gap: 0.5rem; }
+    .card-btn-book { flex-grow: 1; padding: 1rem; }
+    .card-btn-share { width: auto; padding: 1rem 1.2rem; }
+    .filter-tabs { gap: 0.5rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.5rem; justify-content: flex-start; scrollbar-width: none; }
+    .filter-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; flex-shrink: 0; }
+    .hero-title { font-size: 3.5rem; }
+    .section-title { font-size: 2.2rem; }
+    .trips-grid { gap: 1.2rem; }
 }
 
 /* ============================================
