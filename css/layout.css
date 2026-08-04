@@ -530,6 +530,31 @@ ul { list-style: none; }
     50% { transform: translateY(-15px) rotate(11deg); }
 }
 
+@media (min-width: 769px) {
+    .hero-visual-container {
+        gap: 6rem;
+        max-width: 1400px;
+        margin: 5rem auto;
+    }
+    .hero-image-stack {
+        width: 320px;
+        height: 440px;
+    }
+    .stack-card {
+        border-width: 10px;
+    }
+    .floating-polaroid {
+        width: 300px;
+        padding: 15px 15px 55px 15px;
+    }
+    .floating-polaroid img {
+        height: 350px;
+    }
+    .polaroid-caption {
+        font-size: 1.25rem;
+        bottom: 18px;
+    }
+}
 @media (max-width: 768px) {
     .hero-visual-container {
         gap: 0;
