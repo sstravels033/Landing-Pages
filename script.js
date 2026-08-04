@@ -548,7 +548,7 @@
 
             tripsGrid.appendChild(card);
 
-            setTimeout(function () { card.classList.add('visible'); }, 100 + idx * 80);
+            card.classList.add('visible');
         });
 
 
@@ -693,10 +693,10 @@
             delay: 0,
         });
 
-        gsap.to('.hero-subtitle', { opacity: 1, duration: 0.5, delay: 0.2, ease: 'power2.out' });
-        gsap.to('.hero-cta', { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' });
-        gsap.to('.hero-stats', { opacity: 1, duration: 0.5, delay: 0.4, ease: 'power2.out' });
-        gsap.to('.hero-image-stack', { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' });
+        gsap.to('.hero-subtitle', { opacity: 1, duration: 0.5, delay: 0, ease: 'power2.out' });
+        gsap.to('.hero-cta', { opacity: 1, duration: 0.5, delay: 0, ease: 'power2.out' });
+        gsap.to('.hero-stats', { opacity: 1, duration: 0.5, delay: 0, ease: 'power2.out' });
+        gsap.to('.hero-image-stack', { opacity: 1, duration: 0.5, delay: 0, ease: 'power2.out' });
 
         // Counter animation
         document.querySelectorAll('.stat-num').forEach(function (el) {
@@ -704,7 +704,7 @@
             gsap.to(el, {
                 innerHTML: target,
                 duration: 1,
-                delay: 0.4,
+                delay: 0,
                 snap: { innerHTML: 1 },
                 ease: 'power2.out',
             });
@@ -863,3 +863,4 @@ window.initNavbar = function() {
         });
     }
 };
+\ndocument.addEventListener('DOMContentLoaded', window.initNavbar);

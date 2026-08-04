@@ -25,12 +25,42 @@
 
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
     
     <link rel="stylesheet" href="../css/trip.css">
+    <script src="../js/trip.js" defer></script>
 </head>
 <body>
-    <script src="../js/components.js"></script><site-header></site-header>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="sstravels logo - stylized 'ss' letters in neon pink gradient forming an infinity loop with 'travels' in clean white modern font, set against dark background" class="logo-img">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-link" data-text="Home">Home</a>
+                <a href="#map-section" class="nav-link" data-text="Explore">Explore</a>
+                <a href="#trips" class="nav-link" data-text="Trips">Trips</a>
+                <a href="#safety" class="nav-link" data-text="Safety">Safety</a>
+                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#map-section" class="mobile-link">Explore</a>
+            <a href="#trips" class="mobile-link">Trips</a>
+            <a href="#safety" class="mobile-link">Safety</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
 
     <header class="trip-mesh-hero">
         <div class="mesh-bg"></div>
@@ -64,9 +94,24 @@
         </div>
     </main>
 
-    <site-footer></site-footer>
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="sstravels logo - neon pink infinity loop 'ss' with modern white 'travels' text on dark background" class="footer-logo-img">
+                    <p>Weekend escapes from Hyderabad for young, adventurous souls. Safe, affordable, unforgettable.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#trips">All Trips</a>
+                    <a href="#safety">Safety</a>
+                    <a href="#map-section">Explore</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://wa.me/918409358131" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 
-    <script src="../js/trip.js"></script>
+    
     <div class="floating-action-bar">
         <button class="float-btn float-install" id="float-install-btn" title="Install App"><i class="fa-solid fa-download"></i></button>
         <a href="#" class="float-btn float-yt"><i class="fa-brands fa-youtube"></i></a>
