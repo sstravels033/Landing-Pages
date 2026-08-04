@@ -1,1 +1,166 @@
-<h1>Hello World.!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="sstravels - Let's escape! Budget-friendly, fun-filled weekend trips from Hyderabad for Gen-Z. Book your next adventure to Goa, Hampi, Araku, and more!">
+    <title>sstravels | Let's Escape</title>
+    
+    <!-- PWA Manifest for Home Screen Installation -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">ss<span>travels</span></a>
+            <div class="nav-links">
+                <a href="#trips" class="nav-link">Trips</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="sstravels - lets escape">sstravels - lets escape</h1>
+            <p class="subtitle">Curated weekend getaways from Hyderabad for the young and restless. Make friends, explore safely, and vibe.</p>
+            <a href="#trips" class="cta-btn primary-btn">View All Trips <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <!-- Trips Section -->
+    <section id="trips" class="trips-section">
+        <div class="section-header">
+            <h2>Upcoming Escapes</h2>
+            <p>Grab your seat before they're gone!</p>
+        </div>
+        
+        <div class="trips-grid">
+            <!-- Trip Card 1: Goa -->
+            <div class="trip-card">
+                <div class="card-img-wrapper">
+                    <img src="assets/goa.jpg" alt="Goa Trip" loading="lazy">
+                    <div class="badge">Trending</div>
+                </div>
+                <div class="card-content">
+                    <h3>Goa Beach Party</h3>
+                    <div class="trip-details">
+                        <span><i class="fa-regular fa-calendar"></i> This Weekend</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 6,000 / seat</span>
+                    </div>
+                    <p class="description">Sun, sand, and unforgettable nights. Safe, budget-friendly trip for bachelors & bachelorettes.</p>
+                    <div class="card-actions">
+                        <button class="book-btn" onclick="bookTrip('Goa Beach Party')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
+                        <button class="share-btn" onclick="shareTrip('Goa Beach Party')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Card 2: Hampi -->
+            <div class="trip-card">
+                <div class="card-img-wrapper">
+                    <img src="assets/hampi.jpg" alt="Hampi Trip" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Hampi Heritage & Tents</h3>
+                    <div class="trip-details">
+                        <span><i class="fa-regular fa-calendar"></i> Next Weekend</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 4,500 / seat</span>
+                    </div>
+                    <p class="description">Explore ancient ruins by day, camp under the stars by night. A surreal escape from the city.</p>
+                    <div class="card-actions">
+                        <button class="book-btn" onclick="bookTrip('Hampi Heritage & Tents')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
+                        <button class="share-btn" onclick="shareTrip('Hampi Heritage & Tents')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Card 3: Araku -->
+            <div class="trip-card">
+                <div class="card-img-wrapper">
+                    <img src="assets/araku.jpg" alt="Araku Valley" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Araku Valley Vibes</h3>
+                    <div class="trip-details">
+                        <span><i class="fa-regular fa-calendar"></i> In 2 Weeks</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 5,000 / seat</span>
+                    </div>
+                    <p class="description">Lush green valleys, misty mornings, and fresh coffee. Perfect nature retreat to recharge.</p>
+                    <div class="card-actions">
+                        <button class="book-btn" onclick="bookTrip('Araku Valley Vibes')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
+                        <button class="share-btn" onclick="shareTrip('Araku Valley Vibes')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Card 4: Chirala -->
+            <div class="trip-card">
+                <div class="card-img-wrapper">
+                    <img src="assets/chirala.jpg" alt="Chirala Beach" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Chirala Beach Camping</h3>
+                    <div class="trip-details">
+                        <span><i class="fa-regular fa-calendar"></i> In 3 Weeks</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> 3,500 / seat</span>
+                    </div>
+                    <p class="description">Bonfires, music, and ocean waves. The perfect quick weekend getaway from Hyderabad.</p>
+                    <div class="card-actions">
+                        <button class="book-btn" onclick="bookTrip('Chirala Beach Camping')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
+                        <button class="share-btn" onclick="shareTrip('Chirala Beach Camping')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2 class="footer-logo">ss<span>travels</span></h2>
+            <p>Your safety is our priority. Join the community, make friends, and travel stress-free.</p>
+            <div class="contact-info">
+                <a href="https://wa.me/918409358131" target="_blank" class="contact-link"><i class="fa-brands fa-whatsapp"></i> +91-8409358131</a>
+            </div>
+            <div class="socials">
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 sstravels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Install App Prompt Modal -->
+    <div id="install-modal" class="modal glass-panel">
+        <div class="modal-content">
+            <h3>Add sstravels to Home Screen?</h3>
+            <p>Install our app for quicker access to the latest trips and easier sharing with friends!</p>
+            <div class="modal-actions">
+                <button id="install-btn" class="primary-btn">Install App</button>
+                <button id="close-modal-btn" class="secondary-btn">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
