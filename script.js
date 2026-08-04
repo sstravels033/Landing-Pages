@@ -18,7 +18,7 @@
             duration: '2 Days / 1 Night',
             badge: 'Trending',
             badgeType: 'trending',
-            image: 'assets/app_icon_1785873839441.jpg',
+            image: 'assets/goa.jpg',
             alt: 'Aerial view of a stunning Goa beach at sunset with golden sand stretching along turquoise Arabian Sea waters, palm trees casting long shadows, colorful beach shacks lit with fairy lights, and young travelers dancing near a bonfire on the shore',
             desc: 'Sun, sand, and unforgettable vibes. Experience the best of North Goa beaches, nightlife, and seafood.',
             highlights: ['Baga & Calangute beaches', 'Night market exploration', 'Beach bonfire & music', 'Seafood dinner by the sea'],
@@ -32,7 +32,7 @@
             date: '15 Aug - 16 Aug',
             duration: '2 Days / 1 Night',
             badge: 'Must Go',
-            image: 'assets/araku_trip_1785873719869.jpg',
+            image: 'assets/hampi.jpg',
             alt: 'Majestic ancient stone ruins of Hampi at golden hour, massive granite boulders scattered across the landscape, the iconic Virupaksha temple towering in the background, with a group of young backpackers exploring the Tungabhadra riverbank',
             desc: 'Explore ancient ruins by day, camp under the stars by night. A surreal escape into history.',
             highlights: ['Virupaksha Temple sunrise', 'Coracle ride on Tungabhadra', 'Sunset at Matanga Hill', 'Tent camping under stars'],
@@ -46,7 +46,7 @@
             date: '22 Aug - 23 Aug',
             duration: '2 Days / 1 Night',
             badge: 'Nature',
-            image: 'assets/chirala_trip_1785873731036.jpg',
+            image: 'assets/araku.jpg',
             alt: 'Misty morning panorama of Araku Valley with lush green coffee plantations carpeting rolling hills, wispy clouds floating between valleys, a narrow gauge train winding through the Eastern Ghats, and tribal art installations visible along the scenic route',
             desc: 'Lush valleys, misty mornings, and fresh coffee. The perfect nature retreat to recharge your soul.',
             highlights: ['Borra Caves exploration', 'Coffee plantation tour', 'Tribal museum visit', 'Valley viewpoint sunrise'],
@@ -60,7 +60,7 @@
             date: '29 Aug - 30 Aug',
             duration: '2 Days / 1 Night',
             badge: 'Budget',
-            image: 'assets/coorg_1785875416096.jpg',
+            image: 'assets/chirala.jpg',
             alt: 'Pristine untouched beach at Chirala during twilight with deep blue waves crashing on clean sandy shore, colorful camping tents lined up near the dunes, a blazing orange bonfire surrounded by young adults playing guitar, and a starry sky beginning to emerge',
             desc: 'Bonfires, music, and ocean waves. The perfect quick weekend escape from Hyderabad.',
             highlights: ['Beach camping setup', 'Bonfire & music night', 'Sunrise yoga by the sea', 'Water sports activities'],
@@ -75,7 +75,7 @@
             duration: '2 Days / 1 Night',
             badge: 'Popular',
             badgeType: 'trending',
-            image: 'assets/gandikota_1785875379269.jpg',
+            image: 'assets/pondicherry.jpg',
             alt: 'Charming French Quarter street in Pondicherry with vibrant yellow and blue colonial buildings, bougainvillea cascading over walls, a vintage bicycle parked by a cafe, the Promenade Beach visible at the end of the street with crashing waves and a lighthouse',
             desc: 'French colonial charm meets Indian soul. Cafes, beaches, and the serene Auroville.',
             highlights: ['French Quarter walk', 'Promenade Beach sunrise', 'Auroville & Matrimandir', 'Cafe hopping & shopping'],
@@ -89,7 +89,7 @@
             date: '12 Sep - 13 Sep',
             duration: '2 Days / 1 Night',
             badge: 'Adventure',
-            image: 'assets/goa_trip_1785873692804.jpg',
+            image: 'assets/gandikota.jpg',
             alt: 'Dramatic gorge of Gandikota at sunrise, known as the Grand Canyon of India, with deep red and orange sandstone cliff walls plunging into the Pennar River below, ancient fort ruins perched on the cliff edge, and a camping tent set up at the viewpoint',
             desc: 'India\'s own Grand Canyon. Cliff camping, fort exploration, and jaw-dropping gorge views.',
             highlights: ['Canyon cliff viewpoint', 'Gandikota Fort ruins', 'Pennar River kayaking', 'Cliff-edge tent camping'],
@@ -102,7 +102,7 @@
             price: 5500,
             date: '19 Sep - 20 Sep',
             duration: '2 Days / 1 Night',
-            image: 'assets/gokarna_1785875443925.jpg',
+            image: 'assets/vizag.jpg',
             alt: 'Breathtaking panoramic view of Visakhapatnam coastline from Kailasagiri hilltop with the vast Bay of Bengal stretching to the horizon, Rama Krishna Beach curving below, submarine museum visible on the shore, and lush green hills meeting the blue ocean',
             desc: 'Coastal roads, hilltop views, and submarine tours. Vizag is the beach city done right.',
             highlights: ['RK Beach & Submarine Museum', 'Kailasagiri hilltop cable car', 'Yarada Beach sunset', 'Dolphin\'s Nose viewpoint'],
@@ -116,7 +116,7 @@
             date: '26 Sep - 27 Sep',
             duration: '2 Days / 1 Night',
             badge: 'Refreshing',
-            image: 'assets/hampi_trip_1785873702689.jpg',
+            image: 'assets/coorg.jpg',
             alt: 'Serene morning in Coorg coffee estate with rows of coffee plants covered in morning dew, misty Western Ghats mountains in the background, a traditional Kodava homestay with red-tiled roof surrounded by spice gardens, and a waterfall visible in the distance',
             desc: 'Misty hills, coffee aroma, and waterfalls. Coorg is where you go to feel alive again.',
             highlights: ['Abbey Falls trek', 'Coffee estate tour & tasting', 'Raja\'s Seat sunset', 'Dubare elephant camp'],
@@ -129,7 +129,7 @@
             price: 2800,
             date: '15 Aug - 16 Aug',
             duration: '1 Day',
-            image: 'assets/india_map_routes_1785873675377.jpg',
+            image: 'assets/warangal.jpg',
             alt: 'Ancient Kakatiya Kala Thoranam gateway of Warangal standing tall against a dramatic sky, intricate stone carvings on the thousand-pillar temple, Ramappa temple lake reflecting the ornate Kakatiya architecture, surrounded by manicured green lawns',
             desc: 'A quick dive into Kakatiya glory. Temples, forts, and incredible stone carvings — all in a day.',
             highlights: ['Thousand Pillar Temple', 'Warangal Fort & Thoranam', 'Ramappa Temple (UNESCO)', 'Pakhal Lake visit'],
@@ -142,7 +142,7 @@
             price: 5800,
             date: '3 Oct - 4 Oct',
             duration: '2 Days / 1 Night',
-            image: 'assets/logo_1785874765731.jpg',
+            image: 'assets/gokarna.jpg',
             alt: 'Stunning aerial view of Om Beach in Gokarna shaped like the sacred Om symbol, pristine golden sand between rocky headlands, turquoise waves lapping the shore, a trail of hikers visible on the coastal path connecting beaches, and rustic beach huts nestled in palm groves',
             desc: 'Quieter than Goa, more beautiful than most. Hike between hidden beaches and sleep under palm trees.',
             highlights: ['Beach trek trail (5 beaches)', 'Om Beach camping', 'Mahabaleshwar Temple', 'Cliff jumping at Half Moon'],
@@ -155,7 +155,7 @@
             price: 5200,
             date: '10 Oct - 11 Oct',
             duration: '2 Days / 1 Night',
-            image: 'assets/pondicherry_1785875343263.jpg',
+            image: 'assets/mysore.jpg',
             alt: 'Magnificent Mysore Palace illuminated with thousands of golden lights at dusk, Indo-Saracenic architecture gleaming against a purple twilight sky, the palace gardens in the foreground with visitors admiring the spectacle, and Chamundi Hills silhouetted in the background',
             desc: 'Royal palaces, vibrant markets, and Chamundi Hills. Mysore is heritage meets street food heaven.',
             highlights: ['Mysore Palace light show', 'Chamundi Hills sunrise', 'Brindavan Gardens', 'Devaraja Market shopping'],
@@ -169,7 +169,7 @@
             date: '17 Oct - 18 Oct',
             duration: '2 Days / 1 Night',
             badge: 'Thrilling',
-            image: 'assets/vizag_1785875406720.jpg',
+            image: 'assets/dandeli.jpg',
             alt: 'Thrilling white water rafting scene on the Kali River in Dandeli with a group of young adventurers in orange life jackets paddling through class III rapids, lush dense Western Ghats forest flanking both sides of the river, sunlight filtering through the canopy',
             desc: 'White water rafting, jungle safaris, and zip-lining. For the adrenaline junkies in the group.',
             highlights: ['White water rafting (Class III)', 'Jungle safari drive', 'Zip-lining over the river', 'Night camping by Kali River'],
@@ -182,7 +182,7 @@
             price: 5800,
             date: '24 Oct - 25 Oct',
             duration: '2 Days / 1 Night',
-            image: 'assets/warangal_1785875433660.jpg',
+            image: 'assets/ooty.jpg',
             alt: 'Charming Nilgiri Mountain Railway toy train chugging through a misty tea plantation in Ooty, emerald green tea bushes stretching across rolling hills, eucalyptus trees lining the tracks, Ooty Lake visible in the valley below reflecting the cloudy sky',
             desc: 'Toy trains, tea gardens, and misty mornings. Classic hill station vibes for a relaxed weekend.',
             highlights: ['Nilgiri Mountain Railway ride', 'Tea factory tour', 'Ooty Lake boating', 'Doddabetta Peak views'],
@@ -196,7 +196,7 @@
             date: '29 Aug - 30 Aug',
             duration: '2 Days / 1 Night',
             badge: 'Hidden Gem',
-            image: 'assets/app_icon_1785873839441.jpg',
+            image: 'assets/lambasingi.jpg',
             alt: 'Ethereal foggy morning at Lambasingi viewpoint with thick white clouds settled in the valley below like a sea of cotton, pine forest on the hillside catching golden dawn light, camping tents perched on the cliff edge, known as the Kashmir of Andhra Pradesh',
             desc: 'Andhra\'s Kashmir. Sub-zero feels, dense fog, and sunrise above the clouds. Unreal.',
             highlights: ['Cloud valley sunrise', 'Kothapalli waterfalls trek', 'Bonfire in the cold', 'Coffee estate walk'],
@@ -209,7 +209,7 @@
             price: 3500,
             date: '22 Aug - 23 Aug',
             duration: '1 Day',
-            image: 'assets/araku_trip_1785873719869.jpg',
+            image: 'assets/srisailam.jpg',
             alt: 'Majestic Srisailam Mallikarjuna temple complex atop Nallamala Hills with ancient Dravidian gopuram towers, the sacred Krishna River flowing through a deep gorge below, dense Nallamala forest covering the surrounding hills, and Srisailam dam releasing water in a cascade',
             desc: 'Ancient temple on a cliff, tiger reserve forests, and the mighty Krishna river gorge.',
             highlights: ['Mallikarjuna Jyotirlinga', 'Krishna River boat ride', 'Nallamala forest drive', 'Pathalaganga viewpoint'],
@@ -223,7 +223,7 @@
             date: '8 Aug - 9 Aug',
             duration: '1 Day',
             badge: 'Closest',
-            image: 'assets/chirala_trip_1785873731036.jpg',
+            image: 'assets/ananthagiri.jpg',
             alt: 'Peaceful Ananthagiri Hills forest trail just 80km from Hyderabad, tall eucalyptus and teak trees forming a green canopy over a winding red-dirt path, a small waterfall trickling over mossy rocks, morning mist hanging between the trees, perfect for a day hike',
             desc: 'Just 80km from Hyderabad. Quick morning trek, waterfalls, and back by evening.',
             highlights: ['Forest trek trails', 'Hidden waterfalls', 'Anantha Padmanabha Temple', 'Picnic by the stream'],
@@ -237,7 +237,7 @@
             date: '15 Aug - 16 Aug',
             duration: '2 Days, 1 Night',
             badge: 'Trending',
-            image: 'assets/coorg_1785875416096.jpg',
+            image: 'assets/tadoba.jpg',
             alt: 'Majestic Bengal tiger walking through the dry deciduous forest of Tadoba Andhari Tiger Reserve',
             desc: 'The best tiger spotting destination in India. Jungle safaris and wild nature in Maharashtra.',
             highlights: ['Morning & Evening Safari', 'Tiger spotting', 'Bamboo forest stay', 'Campfire dinner'],
@@ -251,7 +251,7 @@
             date: '8 Aug - 9 Aug',
             duration: '1 Day',
             badge: 'Monsoon Special',
-            image: 'assets/gandikota_1785875379269.jpg',
+            image: 'assets/kuntala.jpg',
             alt: 'Roaring Kuntala waterfalls in Adilabad district cascading down tiered rocks amidst dense green forest',
             desc: 'The highest waterfall in Telangana. A perfect monsoon road trip just a few hours north.',
             highlights: ['Waterfall trek', 'Pochera Falls visit', 'Forest drive', 'Local tribal food'],
@@ -265,7 +265,7 @@
             date: '22 Aug - 23 Aug',
             duration: '2 Days, 2 Nights',
             badge: 'Premium',
-            image: 'assets/goa_trip_1785873692804.jpg',
+            image: 'assets/pench.jpg',
             alt: 'Dense teak forest of Pench National Park with a spotted leopard resting on a tree branch',
             desc: 'The real-life inspiration for The Jungle Book. Incredible wildlife and premium forest resorts.',
             highlights: ['Open jeep safari', 'Leopard tracking', 'Jungle Walk', 'Luxury tent stay'],
@@ -278,7 +278,7 @@
             price: 6500,
             date: '29 Aug - 30 Aug',
             duration: '2 Days, 1 Night',
-            image: 'assets/gokarna_1785875443925.jpg',
+            image: 'assets/ajanta.jpg',
             alt: 'Ancient rock-cut caves of Ajanta featuring incredible Buddhist murals and massive carved pillars',
             desc: 'Overnight journey to Aurangabad. Explore the mind-blowing ancient rock-cut architecture.',
             highlights: ['Guided heritage tour', 'Kailasa Temple', 'Ajanta murals', 'Aurangabad food tour'],
@@ -291,7 +291,7 @@
             price: 4500,
             date: '15 Aug - 16 Aug',
             duration: '2 Days, 1 Night',
-            image: 'assets/hampi_trip_1785873702689.jpg',
+            image: 'assets/nanded.jpg',
             alt: 'Beautiful glowing white Gurudwara Hazur Sahib in Nanded illuminated at night with a calm sarovar',
             desc: 'A peaceful spiritual journey to one of the five takhts in Sikhism. Calm vibes and amazing langar.',
             highlights: ['Gurudwara Darshan', 'Laser show', 'Langar experience', 'Godavari river banks'],
@@ -305,7 +305,7 @@
             date: '22 Aug - 23 Aug',
             duration: '7 Days, 6 Nights',
             badge: 'Spiritual',
-            image: 'assets/india_map_routes_1785873675377.jpg',
+            image: 'assets/up-heritage.jpg',
             alt: 'Ghats of Varanasi illuminated with beautiful evening Ganga Aarti',
             desc: 'The ultimate 7-day spiritual journey through the sacred cities of Uttar Pradesh. Witness the divine Ganga Aarti, the holy Sangam, and the grand Ram Mandir.',
             highlights: ['Kashi Vishwanath Darshan', 'Evening Ganga Aarti', 'Triveni Sangam dip', 'Ayodhya Ram Mandir', 'Boat ride at dawn'],
@@ -317,13 +317,9 @@
     // ============================================
     // Loader
     // ============================================
-    document.body.classList.add('loading');
     window.addEventListener('load', function () {
-        setTimeout(function () {
-            document.getElementById('loader').classList.add('hidden');
-            document.body.classList.remove('loading');
-            initAnimations();
-        }, 1800);
+        document.body.classList.remove('loading');
+        initAnimations();
     });
 
     // ============================================
@@ -710,27 +706,27 @@
     function initAnimations() {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero title reveal
-        gsap.to('.title-line', {
+        gsap.to('.hero-title .title-line', {
             opacity: 1,
             y: 0,
-            duration: 1,
-            stagger: 0.2,
+            duration: 0.6,
+            stagger: 0.1,
             ease: 'power3.out',
-            delay: 0.3,
+            delay: 0,
         });
 
-        gsap.to('.hero-subtitle', { opacity: 1, duration: 0.8, delay: 0.9, ease: 'power2.out' });
-        gsap.to('.hero-cta', { opacity: 1, duration: 0.8, delay: 1.1, ease: 'power2.out' });
-        gsap.to('.hero-stats', { opacity: 1, duration: 0.8, delay: 1.3, ease: 'power2.out' });
+        gsap.to('.hero-subtitle', { opacity: 1, duration: 0.5, delay: 0.2, ease: 'power2.out' });
+        gsap.to('.hero-cta', { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' });
+        gsap.to('.hero-stats', { opacity: 1, duration: 0.5, delay: 0.4, ease: 'power2.out' });
+        gsap.to('.hero-image-stack', { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' });
 
         // Counter animation
         document.querySelectorAll('.stat-num').forEach(function (el) {
             var target = parseInt(el.getAttribute('data-count'), 10);
             gsap.to(el, {
                 innerHTML: target,
-                duration: 2,
-                delay: 1.5,
+                duration: 1,
+                delay: 0.4,
                 snap: { innerHTML: 1 },
                 ease: 'power2.out',
             });
