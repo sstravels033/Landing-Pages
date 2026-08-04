@@ -102,6 +102,12 @@ trips.forEach(trip => {
     <site-footer></site-footer>
 
     <script src="../js/trip.js"></script>
+    <div class="floating-action-bar">
+        <a href="#" class="float-btn float-ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="float-btn float-fb"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="float-btn float-wa"><i class="fa-brands fa-whatsapp"></i></a>
+        <button class="float-btn float-install" id="float-install-btn" title="Install App"><i class="fa-solid fa-download"></i></button>
+    </div>
 </body>
 </html>`;
     

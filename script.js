@@ -799,26 +799,16 @@
     // PWA Install
     // ============================================
     var deferredPrompt;
-    var installModal = document.getElementById('install-modal');
     var installBtn = document.getElementById('float-install-btn');
-    var dismissBtn = document.getElementById('dismiss-install');
 
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferredPrompt = e;
-        setTimeout(function () { installModal.classList.add('show'); }, 4000);
     });
 
-    // Show install suggestion after 8 seconds for all users
-    setTimeout(function () {
-        if (!deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches) {
-            installModal.classList.add('show');
-        }
-    }, 8000);
-
     if (installBtn) {
-        installBtn.addEventListener('click', function () {
-            installModal.classList.remove('show');
+        installBtn.addEventListener('click', function (e) {
+            e.preventDefault();
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
@@ -826,10 +816,6 @@
                 showToast("Tap your browser's Share → Add to Home Screen");
             }
         });
-    }
-
-    if (dismissBtn) {
-        dismissBtn.addEventListener('click', function () { installModal.classList.remove('show'); });
     }
 
     // ============================================
