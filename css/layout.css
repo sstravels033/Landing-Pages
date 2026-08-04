@@ -172,11 +172,12 @@ ul { list-style: none; }
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     padding: 0.7rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -438,6 +439,39 @@ ul { list-style: none; }
 }
 
 .btn-ghost:hover { color: var(--text-primary); }
+
+/* Hero Image Stack */
+.hero-image-stack {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    margin: 3rem auto;
+    perspective: 1000px;
+}
+.stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 6px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: var(--transition-smooth);
+    background: white;
+}
+.stack-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stack-card.card-1 { transform: rotate(-30deg) translateX(-40px); z-index: 1; }
+.stack-card.card-2 { transform: rotate(0deg) translateZ(30px); z-index: 3; }
+.stack-card.card-3 { transform: rotate(30deg) translateX(40px); z-index: 2; }
+.hero-image-stack:hover .card-1 { transform: rotate(-40deg) translateX(-80px) translateY(20px); }
+.hero-image-stack:hover .card-3 { transform: rotate(40deg) translateX(80px) translateY(20px); }
+.hero-image-stack:hover .card-2 { transform: scale(1.05) translateZ(50px); }
 
 /* Hero Stats */
 .hero-stats {
@@ -719,6 +753,8 @@ ul { list-style: none; }
     display: flex;
     flex-direction: column;
     height: 100%;
+    content-visibility: auto;
+    contain-intrinsic-size: 400px;
 }
 
 .trip-card.visible {
