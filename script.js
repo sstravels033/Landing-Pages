@@ -451,16 +451,13 @@
     // Render Trip Cards
     // ============================================
     const tripsGrid = document.getElementById('trips-grid');
-    const loadMoreBtn = document.getElementById('load-more');
-    let visibleTrips = 8;
     let currentFilter = 'all';
 
     function renderTrips() {
-        const filtered = currentFilter === 'all'
+        const toShow = currentFilter === 'all'
             ? TRIPS
             : TRIPS.filter(function (t) { return t.category === currentFilter; });
 
-        const toShow = filtered.slice(0, visibleTrips);
         tripsGrid.innerHTML = '';
 
         toShow.forEach(function (trip, idx) {
@@ -510,12 +507,7 @@
             setTimeout(function () { card.classList.add('visible'); }, 100 + idx * 80);
         });
 
-        // Show/hide load more
-        if (filtered.length > visibleTrips) {
-            loadMoreBtn.classList.add('visible');
-        } else {
-            loadMoreBtn.classList.remove('visible');
-        }
+
 
         // Attach card button events
         document.querySelectorAll('.card-btn-book').forEach(function (btn) {
@@ -537,19 +529,12 @@
 
     renderTrips();
 
-    // Load More
-    loadMoreBtn.addEventListener('click', function () {
-        visibleTrips += 6;
-        renderTrips();
-    });
-
     // Filter Tabs
     document.querySelectorAll('.filter-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
             document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
             currentFilter = btn.getAttribute('data-filter');
-            visibleTrips = 8;
             renderTrips();
         });
     });
