@@ -618,9 +618,9 @@ ul { list-style: none; }
 
 .india-outline {
     fill: none;
-    stroke: var(--glass-border);
-    stroke-width: 2;
-    opacity: 0.5;
+    stroke: #12121a;
+    stroke-width: 4;
+    opacity: 0.85;
 }
 
 .route-line {
