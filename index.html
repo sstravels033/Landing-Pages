@@ -28,20 +28,16 @@
     <link rel="apple-touch-icon" href="assets/icon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-192.png">
 
-    <!-- Preconnect -->
-    
-    
-    
-    
+    <!-- Preconnect & Preload -->
+    <link rel="preload" href="assets/goa.jpg" as="image">
+    <link rel="preload" href="assets/up-heritage.jpg" as="image">
+    <link rel="preload" href="assets/hampi.jpg" as="image">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="css/fonts.css">
 
     <!-- Icons -->
     <link rel="stylesheet" href="css/all.min.css">
-
-    <!-- Three.js -->
-    <script src="js/vendor/three.min.js" defer></script>
 
     <!-- GSAP for animations -->
     <script src="js/vendor/gsap.min.js" defer></script>
@@ -59,9 +55,6 @@
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
-
-    <!-- Three.js Canvas Background -->
-    <canvas id="hero-canvas"></canvas>
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
@@ -116,21 +109,27 @@
                 </a>
             </div>
             
-            <div class="hero-visual-container">
-                <div class="floating-polaroid left-polaroid" data-animate="fade">
-                    <img src="assets/goa.jpg" alt="Goa beaches">
-                    <div class="polaroid-caption">Goa Vibes</div>
+            <div class="hero-bento-container" data-animate="fade">
+                <div class="bento-item bento-large">
+                    <img src="assets/goa.jpg" alt="Goa Beaches">
+                    <div class="bento-overlay">
+                        <span class="bento-tag">Trending</span>
+                        <h3>Goa Vibes</h3>
+                    </div>
                 </div>
-                
-                <div class="hero-image-stack" data-animate="fade">
-                    <div class="stack-card card-1"><img src="assets/up-heritage.jpg" alt="Ayodhya Trip"></div>
-                    <div class="stack-card card-2"><img src="assets/goa.jpg" alt="Goa Beaches"></div>
-                    <div class="stack-card card-3"><img src="assets/hampi.jpg" alt="Hampi Ruins"></div>
-                </div>
-
-                <div class="floating-polaroid right-polaroid" data-animate="fade">
+                <div class="bento-item bento-medium">
                     <img src="assets/up-heritage.jpg" alt="Ayodhya Heritage">
-                    <div class="polaroid-caption">Kashi & Ayodhya</div>
+                    <div class="bento-overlay">
+                        <span class="bento-tag">Spiritual</span>
+                        <h3>Kashi & Ayodhya</h3>
+                    </div>
+                </div>
+                <div class="bento-item bento-small">
+                    <img src="assets/hampi.jpg" alt="Hampi Ruins">
+                    <div class="bento-overlay">
+                        <span class="bento-tag">Heritage</span>
+                        <h3>Hampi Trails</h3>
+                    </div>
                 </div>
             </div>
             <div class="hero-stats" data-animate="fade">
