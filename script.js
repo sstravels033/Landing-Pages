@@ -763,4 +763,4 @@ window.initNavbar = function() {
         });
     }
 };
-\ndocument.addEventListener('DOMContentLoaded', window.initNavbar);
+document.addEventListener('DOMContentLoaded', window.initNavbar);
