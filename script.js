@@ -487,7 +487,7 @@
 
             card.addEventListener('click', function (e) {
                 if (!e.target.closest('.card-btn')) {
-                    openTripModal(trip);
+                    window.location.href = 'trips/' + trip.id + '.html';
                 }
             });
 
