@@ -11,7 +11,7 @@
 .trip-detail-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, var(--bg-primary), rgba(255,255,255,0.2));
+    background: linear-gradient(to top, var(--bg-primary) 10%, transparent 80%);
 }
 .trip-detail-content {
     position: relative;
@@ -88,4 +88,41 @@
     font-weight: 800;
     color: var(--accent-pink);
     margin-bottom: 1.5rem;
+}
+
+/* Aura Mesh Banner */
+.trip-mesh-hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem 2rem;
+    margin-top: 70px;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+.mesh-bg {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, var(--accent-pink) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--accent-cyan) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, var(--accent-purple) 0%, transparent 50%);
+    background-size: 100% 100%;
+    filter: blur(80px);
+    opacity: 0.25;
+    animation: meshRotate 20s ease-in-out infinite alternate;
+}
+@keyframes meshRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+.mesh-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
 }
