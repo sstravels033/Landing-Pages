@@ -440,13 +440,23 @@ ul { list-style: none; }
 
 .btn-ghost:hover { color: var(--text-primary); }
 
-/* Hero Image Stack */
+/* Floating Polaroids & Visual Container */
+.hero-visual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 1100px;
+}
+
 .hero-image-stack {
     position: relative;
     width: 220px;
     height: 300px;
-    margin: 3rem auto;
     perspective: 1000px;
+    flex-shrink: 0;
 }
 .stack-card {
     position: absolute;
@@ -473,29 +483,20 @@ ul { list-style: none; }
 .hero-image-stack:hover .card-3 { transform: rotate(40deg) translateX(80px) translateY(20px); }
 .hero-image-stack:hover .card-2 { transform: scale(1.05) translateZ(50px); }
 
-/* Floating Polaroids */
-.hero-visual-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .floating-polaroid {
-    position: absolute;
+    position: relative;
     background: white;
     padding: 10px 10px 40px 10px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     border-radius: 4px;
-    width: 180px;
+    width: 200px;
     transition: transform 0.4s ease;
     z-index: 0;
+    flex-shrink: 0;
 }
 .floating-polaroid img {
     width: 100%;
-    height: 220px;
+    height: 240px;
     object-fit: cover;
     border-radius: 2px;
 }
@@ -508,30 +509,32 @@ ul { list-style: none; }
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
     color: #333;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
+
 .left-polaroid {
-    left: 10%;
-    top: 20%;
-    transform: rotate(-15deg);
+    transform: rotate(-8deg);
     animation: float1 6s ease-in-out infinite;
 }
 .right-polaroid {
-    right: 10%;
-    bottom: 10%;
-    transform: rotate(20deg);
+    transform: rotate(8deg);
     animation: float2 7s ease-in-out infinite reverse;
 }
+
 @keyframes float1 {
-    0%, 100% { transform: translateY(0) rotate(-15deg); }
-    50% { transform: translateY(-20px) rotate(-10deg); }
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-15px) rotate(-5deg); }
 }
 @keyframes float2 {
-    0%, 100% { transform: translateY(0) rotate(20deg); }
-    50% { transform: translateY(-20px) rotate(25deg); }
+    0%, 100% { transform: translateY(0) rotate(8deg); }
+    50% { transform: translateY(-15px) rotate(11deg); }
 }
 
 @media (max-width: 768px) {
+    .hero-visual-container {
+        gap: 0;
+        margin: 2rem auto;
+    }
     .floating-polaroid { display: none; }
 }
 
@@ -1648,3 +1651,4 @@ body::after {
 .float-install {
     color: var(--accent-pink);
 }
+
