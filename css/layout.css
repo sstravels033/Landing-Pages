@@ -1541,6 +1541,7 @@ body::after {
     bottom: 30px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     z-index: 9999;
 }
@@ -1581,6 +1582,7 @@ body::after {
 .float-wa {
     color: #25D366;
 }
+.float-yt { color: #FF0000; }
 .float-install {
     color: var(--accent-pink);
 }
