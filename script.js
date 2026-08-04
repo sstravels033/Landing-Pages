@@ -397,6 +397,8 @@
         function animate() {
             requestAnimationFrame(animate);
 
+            if (window.scrollY > window.innerHeight) return;
+
             particles.rotation.x += 0.0003;
             particles.rotation.y += 0.0005;
 
@@ -404,31 +406,7 @@
             camera.position.y += (mouseY * 0.5 - camera.position.y) * 0.02;
             camera.lookAt(scene.position);
 
-            // Update connection lines
-            const posArr = geometry.attributes.position.array;
-            let lineIdx = 0;
-            const maxDist = 1.5;
-            const checkCount = isMobile ? 40 : 100;
-            for (let i = 0; i < Math.min(particlesCount, checkCount); i++) {
-                for (let j = i + 1; j < Math.min(particlesCount, checkCount); j++) {
-                    if (lineIdx >= 300) break;
-                    const dx = posArr[i * 3] - posArr[j * 3];
-                    const dy = posArr[i * 3 + 1] - posArr[j * 3 + 1];
-                    const dz = posArr[i * 3 + 2] - posArr[j * 3 + 2];
-                    const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-                    if (dist < maxDist) {
-                        linePositions[lineIdx * 6] = posArr[i * 3];
-                        linePositions[lineIdx * 6 + 1] = posArr[i * 3 + 1];
-                        linePositions[lineIdx * 6 + 2] = posArr[i * 3 + 2];
-                        linePositions[lineIdx * 6 + 3] = posArr[j * 3];
-                        linePositions[lineIdx * 6 + 4] = posArr[j * 3 + 1];
-                        linePositions[lineIdx * 6 + 5] = posArr[j * 3 + 2];
-                        lineIdx++;
-                    }
-                }
-                if (lineIdx >= 300) break;
-            }
-            lineGeometry.attributes.position.needsUpdate = true;
+            // Connection lines removed for scroll performance
 
             renderer.render(scene, camera);
         }
