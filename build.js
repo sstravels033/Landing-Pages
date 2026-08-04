@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const content = fs.readFileSync('script.js', 'utf8');
-const match = content.match(/const TRIPS = (\[[\s\S]*?\]);\n\n    function getNextWeekend/);
+const match = content.match(/const TRIPS = (\[[\s\S]*?\]);\n/);
 
 if (!match) {
     console.error("Could not parse TRIPS from script.js");
@@ -95,6 +95,7 @@ trips.forEach(trip => {
             <div class="price-huge">₹${trip.price.toLocaleString('en-IN')} <span style="font-size:1rem;color:var(--text-secondary)">per seat</span></div>
             <button class="btn btn-primary" onclick="bookTrip('${trip.name}', '${trip.date}', '${trip.price}')"><i class="fa-brands fa-whatsapp"></i> Book on WhatsApp</button>
             <button class="btn btn-glass" onclick="shareTripDetail('${trip.name}')"><i class="fa-solid fa-share-nodes"></i> Share Trip</button>
+            <p class='disclaimer' style='font-size:0.85rem; color:var(--text-muted); margin-top:1rem;'>*Note: This price includes travel only. Food and accommodation are included only if explicitly mentioned in the package highlights.</p>
         </div>
     </main>
 
