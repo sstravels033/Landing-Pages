@@ -486,7 +486,7 @@
                     <p class="card-desc">' + trip.desc + '</p>\
                     <div class="card-expanded-content">\
                         <ul class="expanded-highlights">' + highlightsHtml + '</ul>\
-                        <div style="margin-bottom: 1rem;"><a href="trips/' + trip.id + '.html" style="color:var(--accent-primary);text-decoration:none;font-size:0.9rem;">View Full Details &rarr;</a></div>\
+                        <div class="card-expanded-link"><a href="trips/' + trip.id + '.html" >View Full Details &rarr;</a></div>\
                     </div>\
                     <div class="card-actions">\
                         <button class="card-btn card-btn-book" data-trip="' + trip.id + '"><i class="fa-brands fa-whatsapp"></i> Book Seat</button>\
@@ -815,3 +815,20 @@
     }
 
 })();
+
+window.initNavbar = function() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+};

@@ -47,6 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
+    <script src="js/components.js"></script>
 </head>
 <body>
     <!-- Loader -->
@@ -66,34 +67,7 @@
     <canvas id="hero-canvas"></canvas>
 
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="sstravels logo - stylized 'ss' letters in neon pink gradient forming an infinity loop with 'travels' in clean white modern font, set against dark background" class="logo-img">
-            </a>
-            <div class="nav-links" id="nav-links">
-                <a href="#hero" class="nav-link" data-text="Home">Home</a>
-                <a href="#map-section" class="nav-link" data-text="Explore">Explore</a>
-                <a href="#trips" class="nav-link" data-text="Trips">Trips</a>
-                <a href="#safety" class="nav-link" data-text="Safety">Safety</a>
-                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-inner">
-            <a href="#hero" class="mobile-link">Home</a>
-            <a href="#map-section" class="mobile-link">Explore</a>
-            <a href="#trips" class="mobile-link">Trips</a>
-            <a href="#safety" class="mobile-link">Safety</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-        </div>
-    </div>
+    <site-header></site-header>
 
     <!-- Hero Section -->
     <header id="hero" class="hero">
@@ -409,22 +383,7 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="assets/logo.png" alt="sstravels logo - neon pink infinity loop 'ss' with modern white 'travels' text on dark background" class="footer-logo-img">
-                    <p>Weekend escapes from Hyderabad for young, adventurous souls. Safe, affordable, unforgettable.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="#trips">All Trips</a>
-                    <a href="#safety">Safety</a>
-                    <a href="#map-section">Explore</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <a href="https://wa.me/918409358131" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <site-footer></site-footer>
                     <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
                     <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter/X</a>

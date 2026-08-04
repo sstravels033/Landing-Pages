@@ -27,106 +27,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     
-    <style>
-        .trip-detail-hero {
-            position: relative;
-            height: 60vh;
-            background: url('../assets/ananthagiri.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: flex-end;
-            padding: 4rem 2rem;
-            margin-top: 70px;
-        }
-        .trip-detail-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(11,12,16,1), rgba(11,12,16,0.2));
-        }
-        .trip-detail-content {
-            position: relative;
-            z-index: 10;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .trip-detail-content h1 {
-            font-size: 3.5rem;
-            font-family: 'Outfit', sans-serif;
-            margin-bottom: 1rem;
-        }
-        .trip-meta-tags {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        .trip-meta-tags span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-secondary);
-        }
-        .trip-main-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-        .trip-main-section h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        .trip-main-section p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        .highlights-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 3rem;
-        }
-        .highlights-list li {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .highlights-list li i {
-            color: var(--accent-primary);
-        }
-        .booking-cta {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-        }
-        .booking-cta h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .price-huge {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent-secondary);
-            margin-bottom: 1.5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/trip.css">
 </head>
 <body>
-    <nav class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="logo">
-                <img src="../assets/logo.png" alt="sstravels logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link">← Back to Home</a>
-            </div>
-        </div>
-    </nav>
+    <script src="../js/components.js"></script><site-header></site-header>
 
     <header class="trip-detail-hero">
         <div class="trip-detail-overlay"></div>
@@ -152,35 +56,13 @@
         <div class="booking-cta">
             <h3>Ready to join?</h3>
             <div class="price-huge">₹2,500 <span style="font-size:1rem;color:var(--text-secondary)">per seat</span></div>
-            <button class="btn btn-primary" onclick="bookTrip()"><i class="fa-brands fa-whatsapp"></i> Book on WhatsApp</button>
-            <button class="btn btn-glass" onclick="shareTrip()"><i class="fa-solid fa-share-nodes"></i> Share Trip</button>
+            <button class="btn btn-primary" onclick="bookTrip('Ananthagiri Quick Escape', '8 Aug - 9 Aug', '2500')"><i class="fa-brands fa-whatsapp"></i> Book on WhatsApp</button>
+            <button class="btn btn-glass" onclick="shareTripDetail('Ananthagiri Quick Escape')"><i class="fa-solid fa-share-nodes"></i> Share Trip</button>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-bottom">
-            <p>&copy; 2026 sstravels. All rights reserved.</p>
-        </div>
-    </footer>
+    <site-footer></site-footer>
 
-    <script>
-        function bookTrip() {
-            var phone = '918409358131';
-            var msg = 'Hey sstravels! 🌟 I want to book a seat for *Ananthagiri Quick Escape* on 8 Aug - 9 Aug. Price: ₹2500/seat. Please share details!';
-            window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
-        }
-        function shareTrip() {
-            var shareData = {
-                title: 'Ananthagiri Quick Escape - sstravels',
-                text: 'Hey! Check out this trip: Ananthagiri Quick Escape by sstravels. 🚀',
-                url: window.location.href,
-            };
-            if (navigator.share) navigator.share(shareData);
-            else {
-                navigator.clipboard.writeText(shareData.url);
-                alert("Link copied!");
-            }
-        }
-    </script>
+    <script src="../js/trip.js"></script>
 </body>
 </html>
