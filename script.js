@@ -418,30 +418,34 @@
     // Navbar
     // ============================================
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 80) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
     // Hamburger
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
-
-    document.querySelectorAll('.mobile-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
         });
-    });
+
+        document.querySelectorAll('.mobile-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
     // ============================================
     // Render Trip Cards
@@ -819,6 +823,18 @@
 window.initNavbar = function() {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
+    const navbar = document.getElementById('navbar');
+    
+    if (navbar) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
     if(hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
