@@ -113,7 +113,7 @@
     background-size: 100% 100%;
     filter: blur(80px);
     opacity: 0.25;
-    animation: meshRotate 20s ease-in-out infinite alternate;
+    transform: rotate(30deg) scale(1.1);
 }
 @keyframes meshRotate {
     0% { transform: rotate(0deg) scale(1); }

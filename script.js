@@ -6,10 +6,11 @@
     'use strict';
 
     // ============================================
-    // Smooth Scrolling (Lenis)
+    // Smooth Scrolling (Lenis) — single RAF via GSAP ticker
     // ============================================
+    var lenis;
     if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
+        lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
@@ -20,18 +21,18 @@
             touchMultiplier: 2
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => {
                 lenis.raf(time * 1000);
             });
             gsap.ticker.lagSmoothing(0);
+        } else {
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
         }
     }
 
@@ -352,41 +353,6 @@
         initAnimations();
     });
 
-    // ============================================
-    // Custom Cursor
-    // ============================================
-    function initCursor() {
-        const dot = document.querySelector('.cursor-dot');
-        const ring = document.querySelector('.cursor-ring');
-        if (!dot || !ring) return;
-        if (window.innerWidth <= 768) return;
-
-        let cursorX = 0, cursorY = 0;
-        let ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', function (e) {
-            cursorX = e.clientX;
-            cursorY = e.clientY;
-            dot.style.left = cursorX - 4 + 'px';
-            dot.style.top = cursorY - 4 + 'px';
-        });
-
-        function animateRing() {
-            ringX += (cursorX - ringX) * 0.15;
-            ringY += (cursorY - ringY) * 0.15;
-            ring.style.left = ringX - 17.5 + 'px';
-            ring.style.top = ringY - 17.5 + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        document.querySelectorAll('a, button, .trip-card, .filter-btn').forEach(function (el) {
-            el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
-            el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
-        });
-    }
-
-    initCursor();
 
     // ============================================
     // Navbar
@@ -723,7 +689,7 @@
     }
 
     // ============================================
-    // Smooth scroll for nav links
+    // Smooth scroll for nav links (use Lenis if available)
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
@@ -732,27 +698,15 @@
             e.preventDefault();
             var target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (lenis) {
+                    lenis.scrollTo(target, { offset: -80 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
     });
 
-    // ============================================
-    // Magnetic Button Effect
-    // ============================================
-    if (window.innerWidth > 768) {
-        document.querySelectorAll('.magnetic').forEach(function (btn) {
-            btn.addEventListener('mousemove', function (e) {
-                var rect = btn.getBoundingClientRect();
-                var x = e.clientX - rect.left - rect.width / 2;
-                var y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
-            });
-            btn.addEventListener('mouseleave', function () {
-                btn.style.transform = 'translate(0, 0)';
-            });
-        });
-    }
 
     // ============================================
     // Service Worker Registration
@@ -765,32 +719,3 @@
 
 })();
 
-window.initNavbar = function() {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navbar = document.getElementById('navbar');
-    
-    if (navbar) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 80) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-
-    if(hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-    }
-};
-document.addEventListener('DOMContentLoaded', window.initNavbar);
