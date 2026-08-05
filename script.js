@@ -689,6 +689,30 @@
     }
 
     // ============================================
+    // Global Share Button
+    // ============================================
+    var globalShareBtn = document.getElementById('float-share-btn');
+    if (globalShareBtn) {
+        globalShareBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var shareData = {
+                title: document.title,
+                text: 'Check out sstravels for budget-friendly weekend getaways from Hyderabad!',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                navigator.share(shareData).catch(function () {});
+            } else {
+                navigator.clipboard.writeText(shareData.text + ' ' + shareData.url).then(function () {
+                    showToast('Link copied to clipboard!');
+                }).catch(function () {
+                    showToast('Copy this link: ' + shareData.url);
+                });
+            }
+        });
+    }
+
+    // ============================================
     // Smooth scroll for nav links (use Lenis if available)
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
