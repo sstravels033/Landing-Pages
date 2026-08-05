@@ -65,6 +65,7 @@ trips.forEach(trip => {
     <link rel="stylesheet" href="../css/layout.css">
     
     <link rel="stylesheet" href="../css/trip.css">
+    <script src="../js/vendor/lenis.min.js" defer></script>
     <script src="../js/trip.js" defer></script>
 </head>
 <body>

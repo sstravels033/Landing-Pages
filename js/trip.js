@@ -1,3 +1,20 @@
+if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        smoothTouch: false,
+        touchMultiplier: 2
+    });
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+}
+
 function bookTrip(tripName, tripDate, tripPrice) {
     var phone = '918409358131';
     var msg = 'Hey sstravels! 🌟 I want to book a seat for *' + tripName + '* on ' + tripDate + '. Price: ₹' + tripPrice + '/seat. Please share details!';

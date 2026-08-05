@@ -63,3 +63,4 @@ ul { list-style: none; }
 }
 
 
+html.lenis, html.lenis body { height: auto; }
