@@ -791,7 +791,7 @@ ul { list-style: none; }
 
 /* Trip Card */
 .trip-card {
-    background: linear-gradient(var(--bg-card), var(--bg-card)), url('../assets/vibrant-bg-blurred.jpg') fixed center center / cover;
+    background: var(--bg-card);
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
