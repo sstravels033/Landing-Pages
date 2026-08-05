@@ -183,4 +183,3 @@ scriptJs = scriptJs.replace(/openTripModal\(trip\);/g, "window.location.href = '
 fs.writeFileSync('script.js', scriptJs);
 console.log('Updated script.js to navigate to trip pages');
 
-

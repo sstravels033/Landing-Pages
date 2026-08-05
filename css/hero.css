@@ -1,0 +1,142 @@
+/* hero.css */
+.hero-visual-gallery {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    margin: 3rem auto;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-card {
+    position: absolute;
+    width: 220px;
+    height: 300px;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    background: #111;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 45, 85, 0.25), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.gallery-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.7);
+    pointer-events: none;
+    border-radius: 24px;
+}
+
+/* Card Positioning & Rotations */
+.card-1 {
+    transform: translateX(-110px) rotate(-12deg) translateY(20px);
+    z-index: 1;
+}
+
+.card-2 {
+    transform: translateX(0) rotate(0deg) scale(1.05) translateZ(30px);
+    z-index: 3;
+    border: 1px solid rgba(255, 45, 85, 0.4);
+    box-shadow: 0 15px 40px rgba(255, 45, 85, 0.25);
+}
+
+.card-3 {
+    transform: translateX(110px) rotate(12deg) translateY(20px);
+    z-index: 2;
+}
+
+/* Tags/Labels inside cards */
+.card-label {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: bottom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    white-space: nowrap;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Hover Group Interactions */
+.hero-visual-gallery:hover .gallery-card {
+    filter: brightness(0.6) blur(2px);
+    transform: translateX(var(--tx)) rotate(var(--r)) scale(0.9);
+}
+
+.hero-visual-gallery .card-1 { --tx: -130px; --r: -15deg; }
+.hero-visual-gallery .card-2 { --tx: 0; --r: 0deg; }
+.hero-visual-gallery .card-3 { --tx: 130px; --r: 15deg; }
+
+/* Individual Card Hover */
+.hero-visual-gallery .gallery-card:hover {
+    filter: brightness(1.1) blur(0);
+    transform: translateY(-30px) scale(1.15) rotate(0deg) translateZ(60px) !important;
+    z-index: 10;
+    border-color: rgba(255, 45, 85, 0.9);
+    box-shadow: 0 25px 60px rgba(255, 45, 85, 0.5), 0 0 30px rgba(255, 45, 85, 0.3);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.2);
+}
+
+.gallery-card:hover .card-glow {
+    opacity: 1;
+}
+
+.gallery-card:hover .card-label {
+    bottom: 25px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-visual-gallery {
+        height: 300px;
+        transform: scale(0.85);
+        margin: 1rem auto;
+    }
+}
+@media (max-width: 480px) {
+    .hero-visual-gallery {
+        height: 250px;
+        transform: scale(0.7);
+        margin: 0 auto;
+    }
+}

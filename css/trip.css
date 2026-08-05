@@ -78,8 +78,7 @@
     padding: 2rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(20, 20, 25, 0.9);
 }
 .booking-cta h3 {
     font-size: 2rem;
