@@ -105,13 +105,23 @@ https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-
             const shaktipeethRoute = [
                 'Hyderabad', 'Kalighat', 'Kamakhya', 'Jwalamukhi', 'Vaishno Devi', 'Karni Mata', 'Hyderabad'
             ];
-            const loopCities = new Set([...jyotirlingaRoute, ...shaktipeethRoute]);
+            const upHeritageRoute = [
+                'Hyderabad', 'Varanasi', 'Prayagraj', 'Ayodhya', 'Hyderabad'
+            ];
+            const loopCities = new Set([...jyotirlingaRoute, ...shaktipeethRoute, ...upHeritageRoute]);
 
             // Draw regular routes first so they are under dots
             for (const [city, coords] of Object.entries(cities)) {
                 if (city === 'Hyderabad' || loopCities.has(city)) continue;
                 const pt = projection(coords);
                 svgHtml += '<line class="route-line" x1="' + hyd[0] + '" y1="' + hyd[1] + '" x2="' + pt[0] + '" y2="' + pt[1] + '" />';
+            }
+
+            // Draw UP Heritage loop
+            for (let i = 0; i < upHeritageRoute.length - 1; i++) {
+                const pt1 = projection(cities[upHeritageRoute[i]]);
+                const pt2 = projection(cities[upHeritageRoute[i+1]]);
+                svgHtml += '<line class="route-line" style="stroke:#9c27b0; opacity:0.8" x1="' + pt1[0] + '" y1="' + pt1[1] + '" x2="' + pt2[0] + '" y2="' + pt2[1] + '" />';
             }
 
             // Draw Jyotirlinga loop

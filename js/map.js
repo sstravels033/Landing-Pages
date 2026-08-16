@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const multiCityRoutes = new Set([
-        'Varanasi', 'Prayagraj', 'Ayodhya', 'Lonavala', 'Trimbakeshwar',
+        'Varanasi', 'Prayagraj', 'Ayodhya', 'Lonavala', 'Trimbakeshwar', 'Srisailam',
         ...jyotirlingaRoute, ...shaktipeethRoute
     ]);
 
