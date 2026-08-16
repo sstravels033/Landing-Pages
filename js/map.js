@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapElement = document.getElementById('leaflet-map');
     if (!mapElement) return;
 
-    // Initialize map centered on South/Central India
+    // Initialize map centered on India
     const map = L.map('leaflet-map', {
         scrollWheelZoom: false // Prevent accidental scrolling when scrolling down the page
-    }).setView([17.3850, 78.4867], 6);
+    }).setView([20.5937, 78.9629], 5);
 
     // Add Voyager map layer (clean road map style similar to Google Maps)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
