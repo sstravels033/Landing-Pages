@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sstravels-v2'; // Bumped version to reset existing caches
+const CACHE_NAME = 'sstravels-1786847435070'; // Timestamp versioned
 const ASSETS = [
     './',
     './index.html',
@@ -10,6 +10,7 @@ const ASSETS = [
     './css/hero.css',
     './script.js',
     './js/map.js',
+    './assets/states.geojson',
     './manifest.json',
     './assets/icon-192.png',
     './assets/icon-512.png',

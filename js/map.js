@@ -18,6 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
     map.on('focus', () => { map.scrollWheelZoom.enable(); });
     map.on('blur', () => { map.scrollWheelZoom.disable(); });
 
+    // Fetch and render states GeoJSON with distinct colors
+    fetch('assets/states.geojson')
+        .then(response => response.json())
+        .then(data => {
+            L.geoJSON(data, {
+                style: function(feature) {
+                    const stateName = feature.properties.ST_NM || '';
+                    let hash = 0;
+                    for (let i = 0; i < stateName.length; i++) {
+                        hash = stateName.charCodeAt(i) + ((hash << 5) - hash);
+                    }
+                    const hue = Math.abs(hash % 360);
+                    return {
+                        fillColor: `hsl(${hue}, 65%, 70%)`,
+                        weight: 1.5,
+                        opacity: 1,
+                        color: '#ffffff', // White state borders
+                        fillOpacity: 0.45 // Semi-transparent overlay
+                    };
+                }
+            }).addTo(map);
+        })
+        .catch(err => console.error('Error loading states GeoJSON:', err));
+
     // Note: Leaflet uses [Latitude, Longitude]
     const cities = {
         Hyderabad: [17.3850, 78.4867],
