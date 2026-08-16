@@ -355,6 +355,75 @@
             desc: 'The ultimate 7-day spiritual journey through the sacred cities of Uttar Pradesh. Witness the divine Ganga Aarti, the holy Sangam, and the grand Ram Mandir.',
             highlights: ['Kashi Vishwanath Darshan', 'Evening Ganga Aarti', 'Triveni Sangam dip', 'Ayodhya Ram Mandir', 'Boat ride at dawn'],
             stay: 'Premium Hotels'
+        },
+        {
+            id: 'lonavala',
+            name: 'Lonavala Monsoon Magic',
+            category: 'mountain',
+            price: 4500,
+            date: '12 Sep - 13 Sep',
+            duration: '2 Days / 1 Night',
+            badge: 'Scenic',
+            image: 'assets/lonavala.jpg',
+            alt: 'Lonavala misty hills during monsoon with lush green valleys and waterfalls',
+            desc: 'The classic monsoon getaway. Foggy drives, waterfalls, and endless greenery.',
+            highlights: ['Tiger Point sunrise', 'Bhushi Dam visit', 'Lohagad Fort trek', 'Khandala sunset point'],
+            stay: 'Hill Resort'
+        },
+        {
+            id: 'pune',
+            name: 'Pune Heritage & Cafe Run',
+            category: 'heritage',
+            price: 4000,
+            date: '19 Sep - 20 Sep',
+            duration: '2 Days / 1 Night',
+            image: 'assets/pune.jpg',
+            alt: 'Shaniwar Wada in Pune during sunset with bustling street life',
+            desc: 'Explore the Maratha history by day and the vibrant student cafe culture by night.',
+            highlights: ['Shaniwar Wada tour', 'Aga Khan Palace', 'Koregaon Park cafes', 'Dagadusheth Halwai Darshan'],
+            stay: 'Boutique Hotel'
+        },
+        {
+            id: 'mumbai',
+            name: 'Mumbai City Lights',
+            category: 'heritage',
+            price: 5500,
+            date: '26 Sep - 27 Sep',
+            duration: '2 Days / 1 Night',
+            badge: 'Iconic',
+            image: 'assets/mumbai.jpg',
+            alt: 'Marine Drive in Mumbai at night with glowing streetlights forming the Queens necklace',
+            desc: 'The city of dreams. Experience the fast life, Marine Drive breeze, and iconic street food.',
+            highlights: ['Marine Drive night walk', 'Gateway of India', 'Colaba Causeway shopping', 'Juhu beach street food'],
+            stay: 'Hotel'
+        },
+        {
+            id: 'jyotirlinga',
+            name: '12 Jyotirlinga Grand Tour',
+            category: 'heritage',
+            price: 35000,
+            date: '1 Nov - 15 Nov',
+            duration: '15 Days / 14 Nights',
+            badge: 'Spiritual',
+            image: 'assets/jyotirlinga.jpg',
+            alt: 'A majestic collage of the 12 Jyotirlingas of Lord Shiva in India',
+            desc: 'The ultimate pan-India spiritual expedition. Visit all 12 sacred Jyotirlingas of Lord Shiva in one epic journey.',
+            highlights: ['Somnath & Nageshwar (Gujarat)', 'Mahakaleshwar & Omkareshwar (MP)', 'Kashi Vishwanath (UP) & Kedarnath (UK)', 'Bhimashankar, Trimbakeshwar, Grishneshwar (MH)', 'Rameshwaram (TN), Mallikarjuna (AP), Baidyanath (JH)'],
+            stay: 'Premium Hotels & AC Trains'
+        },
+        {
+            id: 'shaktipeeth',
+            name: 'Shakti Peetham Divine Tour',
+            category: 'heritage',
+            price: 28000,
+            date: '5 Oct - 15 Oct',
+            duration: '11 Days / 10 Nights',
+            badge: 'Spiritual',
+            image: 'assets/shakti.jpg',
+            alt: 'A divine spiritual representation of Shakti Peethas in India',
+            desc: 'A divine pilgrimage covering the most prominent Shakti Peethas across India. Seek blessings and witness incredible ancient architecture.',
+            highlights: ['Kamakhya Temple (Assam)', 'Kalighat (West Bengal)', 'Vaishno Devi (J&K)', 'Jwalamukhi (Himachal)', 'Karni Mata & other major Peethas'],
+            stay: 'Premium Hotels'
         }
     ];
 

@@ -85,7 +85,23 @@ document.addEventListener('DOMContentLoaded', () => {
         Nanded: [19.1492, 77.3090],
         Varanasi: [25.3176, 83.0039],
         Prayagraj: [25.4358, 81.8463],
-        Ayodhya: [26.7922, 82.1998]
+        Ayodhya: [26.7922, 82.1998],
+        Mumbai: [19.0760, 72.8777],
+        Pune: [18.5204, 73.8567],
+        Lonavala: [18.7566, 73.4072],
+        Somnath: [20.8880, 70.4012],
+        Nageshwar: [22.3346, 69.0135],
+        Bhimashankar: [19.0719, 73.5358],
+        Trimbakeshwar: [19.9320, 73.5312],
+        Grishneshwar: [20.0242, 75.1720],
+        Mahakaleshwar: [23.1827, 75.7682],
+        Omkareshwar: [22.2449, 76.1491],
+        Kedarnath: [30.7346, 79.0669],
+        Baidyanath: [24.4925, 86.6997],
+        Rameshwaram: [9.2876, 79.3129],
+        Kamakhya: [26.1668, 91.7061],
+        Kalighat: [22.5204, 88.3476],
+        VaishnoDevi: [33.0298, 74.9482]
     };
 
     const hydCoords = cities.Hyderabad;
