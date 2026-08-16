@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { margin: 0; background: #000; color: white; font-family: sans-serif; overflow: hidden; }
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        .slideshow { position: absolute; inset: 0; z-index: 1; }
+        .slide { 
+            position: absolute; inset: 0; 
+            opacity: 0; transition: opacity 2s ease-in-out, transform 10s linear;
+            background-size: cover; background-position: center;
+        }
+        
+        /* Simple CSS only crossfade animation */
+        .slide:nth-child(1) { background-image: url('../assets/goa.jpg'); animation: fade 15s infinite; transform: scale(1.1); }
+        .slide:nth-child(2) { background-image: url('../assets/hampi.jpg'); animation: fade 15s infinite; animation-delay: 5s; transform: scale(1.1); }
+        .slide:nth-child(3) { background-image: url('../assets/araku.jpg'); animation: fade 15s infinite; animation-delay: 10s; transform: scale(1.1); }
+        
+        @keyframes fade {
+            0% { opacity: 0; transform: scale(1.1); }
+            10% { opacity: 1; }
+            33% { opacity: 1; transform: scale(1.05); }
+            43% { opacity: 0; transform: scale(1); }
+            100% { opacity: 0; }
+        }
+
+        .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 2; }
+        
+        .content { position: relative; z-index: 10; text-align: center; }
+        h1 { font-size: 5rem; margin: 0; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+        p { font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="slideshow">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Cinematic Escapes</h1>
+            <p>Let the destination speak for itself.</p>
+        </div>
+    </div>
+</body>
+</html>

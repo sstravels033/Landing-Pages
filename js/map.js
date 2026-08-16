@@ -108,13 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
             opacity: 0.4
         }).addTo(map);
 
-        // Draw city marker
-        L.circleMarker(coords, {
-            color: '#00b8d4',
-            fillColor: '#ffffff',
+        // Draw city marker (Darkened spot)
+        const marker = L.circleMarker(coords, {
+            color: '#0f172a', // Dark slate border
+            fillColor: '#1e293b', // Dark slate fill
             fillOpacity: 1,
-            radius: 6,
-            weight: 3
-        }).addTo(map).bindPopup(`<b>${city}</b><br>Weekend Trip Destination`);
+            radius: 5,
+            weight: 2
+        }).addTo(map);
+
+        // Add permanent label (Darker and larger text)
+        marker.bindTooltip(`<b>${city}</b>`, {
+            permanent: true,
+            direction: 'right',
+            className: 'map-city-label',
+            offset: [5, 0],
+            opacity: 0.9
+        });
     }
 });
