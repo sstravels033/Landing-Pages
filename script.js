@@ -358,17 +358,17 @@
         },
         {
             id: 'lonavala',
-            name: 'Lonavala Monsoon Magic',
+            name: 'Lonavala & Trimbakeshwar',
             category: 'mountain',
-            price: 4500,
-            date: '12 Sep - 13 Sep',
-            duration: '2 Days / 1 Night',
+            price: 5500,
+            date: '12 Sep - 14 Sep',
+            duration: '3 Days / 2 Nights',
             badge: 'Scenic',
             image: 'assets/lonavala.jpg',
             alt: 'Lonavala misty hills during monsoon with lush green valleys and waterfalls',
-            desc: 'The classic monsoon getaway. Foggy drives, waterfalls, and endless greenery.',
-            highlights: ['Tiger Point sunrise', 'Bhushi Dam visit', 'Lohagad Fort trek', 'Khandala sunset point'],
-            stay: 'Hill Resort'
+            desc: 'A perfect blend of nature and spirituality. Misty hills of Lonavala and the divine Trimbakeshwar Jyotirlinga.',
+            highlights: ['Lonavala waterfalls & Tiger Point', 'Khandala sunset views', 'Trimbakeshwar Jyotirlinga Darshan', 'Scenic Western Ghats drive'],
+            stay: 'Hill Resort & Hotel'
         },
         {
             id: 'pune',

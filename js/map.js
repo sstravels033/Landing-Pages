@@ -115,17 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
         weight: 2
     }).addTo(map).bindPopup('<b>Hyderabad</b> (Departure Hub)');
 
+    const multiCityRoutes = new Set(['Varanasi', 'Prayagraj', 'Ayodhya', 'Lonavala', 'Trimbakeshwar']);
+
     // Draw destination lines and markers
     for (const [city, coords] of Object.entries(cities)) {
         if (city === 'Hyderabad') continue;
 
-        // Draw dotted line
-        L.polyline([hydCoords, coords], {
-            color: '#ff2d55',
-            weight: 2,
-            dashArray: '5, 5',
-            opacity: 0.4
-        }).addTo(map);
+        if (!multiCityRoutes.has(city)) {
+            // Draw dotted line
+            L.polyline([hydCoords, coords], {
+                color: '#ff2d55',
+                weight: 2,
+                dashArray: '5, 5',
+                opacity: 0.4
+            }).addTo(map);
+        }
 
         // Draw city marker (Darkened spot)
         const marker = L.circleMarker(coords, {
@@ -145,4 +149,31 @@ document.addEventListener('DOMContentLoaded', () => {
             opacity: 0.9
         });
     }
+
+    // Custom Round Route: Kashi (Varanasi) - Prayagraj - Ayodhya
+    L.polyline([
+        hydCoords,
+        cities.Varanasi,
+        cities.Prayagraj,
+        cities.Ayodhya,
+        hydCoords
+    ], {
+        color: '#ff2d55',
+        weight: 2,
+        dashArray: '5, 5',
+        opacity: 0.4
+    }).addTo(map);
+
+    // Custom Round Route: Lonavala & Trimbakeshwar
+    L.polyline([
+        hydCoords,
+        cities.Lonavala,
+        cities.Trimbakeshwar,
+        hydCoords
+    ], {
+        color: '#ff2d55',
+        weight: 2,
+        dashArray: '5, 5',
+        opacity: 0.4
+    }).addTo(map);
 });
