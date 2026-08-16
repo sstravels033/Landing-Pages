@@ -1,87 +1,30 @@
-const CACHE_NAME = 'sstravels-1786893385000'; // Timestamp versioned
-const ASSETS = [
-    './',
-    './index.html',
-    './css/fonts.css',
-    './css/all.min.css',
-    './css/variables.css',
-    './css/base.css',
-    './css/layout.css',
-    './css/hero.css',
-    './script.js',
-    './js/map.js',
-    './assets/states.geojson',
-    './manifest.json',
-    './assets/icon-192.png',
-    './assets/icon-512.png',
-];
+const CACHE_NAME = 'sstravels-no-cache-1786894500000'; // Timestamp versioned for the purge
 
 self.addEventListener('install', function (e) {
-    e.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
-            return cache.addAll(ASSETS);
-        })
-    );
-    self.skipWaiting();
+    self.skipWaiting(); // Force the waiting service worker to become the active service worker
 });
 
 self.addEventListener('activate', function (e) {
+    // Delete ALL existing caches to clear the slate completely
     e.waitUntil(
         caches.keys().then(function (names) {
-            return Promise.all(
-                names.filter(function (name) { return name !== CACHE_NAME; })
-                    .map(function (name) { return caches.delete(name); })
-            );
+            return Promise.all(names.map(function (name) {
+                return caches.delete(name);
+            }));
         })
     );
-    self.clients.claim();
+    self.clients.claim(); // Claim clients so the new sw takes over immediately
 });
 
 self.addEventListener('fetch', function (e) {
-    // Only handle GET requests
-    if (e.request.method !== 'GET') return;
-
-    const isHTML = e.request.mode === 'navigate' || e.request.destination === 'document';
-
-    if (isHTML) {
-        // Network-First for HTML to ensure instant updates on reload
-        e.respondWith(
-            fetch(e.request)
-                .then(function (response) {
-                    if (response && response.status === 200) {
-                        const clone = response.clone();
-                        caches.open(CACHE_NAME).then(function(cache) {
-                            cache.put(e.request, clone);
-                        });
-                    }
-                    return response;
-                })
-                .catch(function () {
-                    // Fallback to cache if offline
-                    return caches.match(e.request).then(function(cached) {
-                        return cached || caches.match('./index.html');
-                    });
-                })
-        );
-    } else {
-        // Stale-While-Revalidate for all other assets (CSS, JS, Images)
-        // Delivers cached version instantly, but updates cache in background for next visit
-        e.respondWith(
-            caches.match(e.request).then(function (cached) {
-                const fetchPromise = fetch(e.request).then(function (networkResponse) {
-                    if (networkResponse && networkResponse.status === 200) {
-                        const clone = networkResponse.clone();
-                        caches.open(CACHE_NAME).then(function (cache) {
-                            cache.put(e.request, clone);
-                        });
-                    }
-                    return networkResponse;
-                }).catch(function() {
-                    // Network failed, silently ignore as we have the cached version
-                });
-                
-                return cached || fetchPromise;
-            })
-        );
-    }
+    // Bypass cache completely and fetch directly from the network every single time
+    e.respondWith(
+        fetch(e.request).catch(function() {
+            // If offline, just fail normally without a cached fallback
+            return new Response("Offline mode is disabled. Please connect to the internet.", { 
+                status: 503, 
+                statusText: "Service Unavailable" 
+            });
+        })
+    );
 });
