@@ -26,6 +26,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/bapatla.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://sstravels033.github.io/Landing-Pages/trips/pondicherry.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -112,6 +117,31 @@
     </url>
     <url>
         <loc>https://sstravels033.github.io/Landing-Pages/trips/up-heritage.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/lonavala.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/pune.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/mumbai.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/jyotirlinga.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sstravels033.github.io/Landing-Pages/trips/shaktipeeth.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

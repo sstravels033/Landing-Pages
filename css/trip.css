@@ -21,17 +21,19 @@
     width: 100%;
 }
 .trip-detail-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-family: 'Outfit', sans-serif;
     margin-bottom: 1rem;
     color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
 .trip-meta-tags {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 .trip-meta-tags span {
     display: flex;
@@ -43,14 +45,16 @@
 .trip-main-section {
     max-width: 800px;
     margin: 4rem auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 .trip-main-section h2 {
     margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 .trip-main-section p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.8;
@@ -61,7 +65,7 @@
     margin-bottom: 3rem;
 }
 .highlights-list li {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -81,14 +85,15 @@
     background: rgba(20, 20, 25, 0.9);
 }
 .booking-cta h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 1rem;
 }
 .price-huge {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 5vw, 3rem);
     font-weight: 800;
     color: var(--accent-pink);
     margin-bottom: 1.5rem;
+    line-height: 1;
 }
 
 /* Aura Mesh Banner */
@@ -127,3 +132,17 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
 }
+
+@media (max-width: 768px) {
+    .trip-detail-hero, .trip-mesh-hero {
+        height: 50vh;
+        padding: 2rem 1.5rem;
+    }
+    .trip-detail-content h1 {
+        font-size: 2.2rem;
+    }
+    .trip-main-section {
+        margin: 3rem auto;
+    }
+}
+

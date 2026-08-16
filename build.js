@@ -58,8 +58,8 @@ trips.forEach(trip => {
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-192.png">
     <link rel="apple-touch-icon" href="../assets/icon-192.png">
 
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/all.min.css">
         <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
@@ -71,15 +71,15 @@ trips.forEach(trip => {
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="sstravels logo - stylized 'ss' letters in neon pink gradient forming an infinity loop with 'travels' in clean white modern font, set against dark background" class="logo-img">
+            <a href="../index.html" class="logo">
+                <img src="../assets/logo.png" alt="sstravels logo - stylized 'ss' letters in neon pink gradient forming an infinity loop with 'travels' in clean white modern font, set against dark background" class="logo-img">
             </a>
             <div class="nav-links" id="nav-links">
-                <a href="#hero" class="nav-link" data-text="Home">Home</a>
-                <a href="#map-section" class="nav-link" data-text="Explore">Explore</a>
-                <a href="#trips" class="nav-link" data-text="Trips">Trips</a>
-                <a href="#safety" class="nav-link" data-text="Safety">Safety</a>
-                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+                <a href="../index.html#hero" class="nav-link" data-text="Home">Home</a>
+                <a href="../index.html#map-section" class="nav-link" data-text="Explore">Explore</a>
+                <a href="../index.html#trips" class="nav-link" data-text="Trips">Trips</a>
+                <a href="../index.html#safety" class="nav-link" data-text="Safety">Safety</a>
+                <a href="../index.html#contact" class="nav-link" data-text="Contact">Contact</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -90,11 +90,11 @@ trips.forEach(trip => {
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-inner">
-            <a href="#hero" class="mobile-link">Home</a>
-            <a href="#map-section" class="mobile-link">Explore</a>
-            <a href="#trips" class="mobile-link">Trips</a>
-            <a href="#safety" class="mobile-link">Safety</a>
-            <a href="#contact" class="mobile-link">Contact</a>
+            <a href="../index.html#hero" class="mobile-link">Home</a>
+            <a href="../index.html#map-section" class="mobile-link">Explore</a>
+            <a href="../index.html#trips" class="mobile-link">Trips</a>
+            <a href="../index.html#safety" class="mobile-link">Safety</a>
+            <a href="../index.html#contact" class="mobile-link">Contact</a>
         </div>
     </div>
 
@@ -134,19 +134,33 @@ trips.forEach(trip => {
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="assets/logo.png" alt="sstravels logo - neon pink infinity loop 'ss' with modern white 'travels' text on dark background" class="footer-logo-img">
+                    <img src="../assets/logo.png" alt="sstravels logo - neon pink infinity loop 'ss' with modern white 'travels' text on dark background" class="footer-logo-img">
                     <p>Weekend escapes from Hyderabad for young, adventurous souls. Safe, affordable, unforgettable.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#trips">All Trips</a>
-                    <a href="#safety">Safety</a>
-                    <a href="#map-section">Explore</a>
+                    <a href="../index.html#trips">All Trips</a>
+                    <a href="../index.html#safety">Safety</a>
+                    <a href="../index.html#map-section">Explore</a>
                 </div>
                 <div class="footer-links">
                     <h4>Connect</h4>
                     <a href="https://wa.me/918409358131" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter/X</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="tel:+918409358131"><i class="fa-solid fa-phone"></i> +91-8409358131</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 sstravels. All rights reserved. Made with <span class="heart">&hearts;</span> in Hyderabad.</p>
+            </div>
+        </div>
+    </footer>
     
     <div class="floating-action-bar">
         <button class="float-btn float-install" id="float-install-btn" title="Install App"><i class="fa-solid fa-download"></i></button>
