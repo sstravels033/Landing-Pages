@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize map centered on India
     const map = L.map('leaflet-map', {
-        scrollWheelZoom: false // Prevent accidental scrolling when scrolling down the page
-    }).setView([20.5937, 78.9629], 5);
+        scrollWheelZoom: false, // Prevent accidental scrolling when scrolling down the page
+        zoomSnap: 0.1,
+        zoomDelta: 0.5
+    }).setView([22.9074, 79.0881], 4.2);
 
     // Add Voyager map layer (clean road map style similar to Google Maps)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {

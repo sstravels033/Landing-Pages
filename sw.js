@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sstravels-1786889085000'; // Timestamp versioned
+const CACHE_NAME = 'sstravels-1786889425000'; // Timestamp versioned
 const ASSETS = [
     './',
     './index.html',
