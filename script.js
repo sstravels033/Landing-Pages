@@ -98,6 +98,20 @@
             stay: 'Beach tents'
         },
         {
+            id: 'bapatla',
+            name: 'Bapatla - Suryalanka Beach',
+            category: 'beach',
+            price: 3500,
+            date: '5 Sep - 6 Sep',
+            duration: '2 Days / 1 Night',
+            badge: 'New',
+            image: 'assets/bapatla.jpg',
+            alt: 'Suryalanka Beach at Bapatla with golden sands and gentle waves, clear blue sky, young people having fun on a sunny beach day',
+            desc: 'A pristine and less crowded beach escape. Perfect for a quick weekend of sun and sand.',
+            highlights: ['Suryalanka Beach sunset', 'Beach games & bonfire', 'Local seafood', 'Relaxing coastal vibes'],
+            stay: 'Beach side stay'
+        },
+        {
             id: 'pondicherry',
             name: 'Pondicherry French Vibes',
             category: 'beach',

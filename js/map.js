@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Hampi: [15.3350, 76.4600],
         Araku: [18.3333, 82.8790],
         Chirala: [15.8167, 80.3547],
+        Bapatla: [15.9048, 80.4688],
         Warangal: [17.9689, 79.5941],
         Pondicherry: [11.9416, 79.8083],
         Gandikota: [14.8145, 78.2842],
