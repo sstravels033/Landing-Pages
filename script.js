@@ -695,19 +695,37 @@
     if (globalShareBtn) {
         globalShareBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            var shareData = {
-                title: document.title,
-                text: 'Check out sstravels for budget-friendly weekend getaways from Hyderabad!',
-                url: window.location.href
-            };
-            if (navigator.share) {
-                navigator.share(shareData).catch(function () {});
-            } else {
-                navigator.clipboard.writeText(shareData.text + ' ' + shareData.url).then(function () {
+            var url = window.location.href;
+            
+            function copyToClipboardFallback(text) {
+                try {
+                    var textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    var successful = document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    if (successful) {
+                        showToast('Link copied to clipboard!');
+                    } else {
+                        showToast('Copy this link: ' + text);
+                    }
+                } catch (err) {
+                    showToast('Copy this link: ' + text);
+                }
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
                     showToast('Link copied to clipboard!');
                 }).catch(function () {
-                    showToast('Copy this link: ' + shareData.url);
+                    copyToClipboardFallback(url);
                 });
+            } else {
+                copyToClipboardFallback(url);
             }
         });
     }

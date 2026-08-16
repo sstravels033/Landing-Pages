@@ -2,7 +2,12 @@ const CACHE_NAME = 'sstravels-v1';
 const ASSETS = [
     './',
     './index.html',
-    './style.css',
+    './css/fonts.css',
+    './css/all.min.css',
+    './css/variables.css',
+    './css/base.css',
+    './css/layout.css',
+    './css/hero.css',
     './script.js',
     './manifest.json',
     './assets/icon-192.png',

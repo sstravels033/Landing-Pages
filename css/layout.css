@@ -246,7 +246,7 @@ ul { list-style: none; }
     font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: #ffffff;
     transition: var(--transition-fast);
 }
 
@@ -286,9 +286,8 @@ ul { list-style: none; }
     border-radius: var(--radius-full);
     padding: 0.5rem 1.2rem;
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 2rem;
-    background: rgba(10, 10, 15, 0.8);
 }
 
 .pulse-dot {
@@ -338,7 +337,7 @@ ul { list-style: none; }
     font-size: 1.15rem;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 1.75rem;
     opacity: 0;
     line-height: 1.7;
 }
@@ -348,7 +347,7 @@ ul { list-style: none; }
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
 }
 
@@ -381,7 +380,6 @@ ul { list-style: none; }
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
-    background: rgba(20, 20, 25, 0.8);
 }
 
 .btn-glass:hover {
@@ -1475,7 +1473,8 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-    .hero { padding: 5rem 1.5rem 3rem; min-height: 100svh; }
+    .hero { padding: 4.5rem 1.5rem 2.5rem; min-height: 100svh; }
+    .hero-cta { margin-bottom: 1rem; }
     .hero-stats { gap: 1.5rem; }
     .stat-num { font-size: 2rem; }
     .section-container { padding: 0 1.5rem; }
@@ -1491,8 +1490,8 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-    .hero-cta { flex-direction: column; align-items: stretch; }
-    .btn { justify-content: center; width: 100%; font-size: 1.1rem; padding: 1.2rem 2rem; }
+    .hero-cta { flex-direction: column; align-items: stretch; margin-bottom: 0.75rem; gap: 0.75rem; }
+    .btn { justify-content: center; width: 100%; font-size: 1rem; padding: 0.9rem 1.5rem; }
     .card-actions { flex-direction: row; gap: 0.5rem; }
     .card-btn-book { flex-grow: 1; padding: 1rem; }
     .card-btn-share { width: auto; padding: 1rem 1.2rem; }

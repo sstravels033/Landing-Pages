@@ -39,10 +39,16 @@
     <!-- Icons -->
     <link rel="stylesheet" href="css/all.min.css">
 
+    <!-- Leaflet Map -->
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
     <!-- Smooth Scroll & GSAP -->
     <script src="js/vendor/lenis.min.js" defer></script>
     <script src="js/vendor/gsap.min.js" defer></script>
     <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/map.js" defer></script>
 
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
@@ -158,9 +164,9 @@
                 <h2 class="section-title" data-animate="reveal">Your Weekend Map</h2>
                 <p class="section-subtitle">30+ destinations, all reachable from Hyderabad in a weekend</p>
             </div>
-            <div class="map-wrapper">
-                <img src="assets/india-map.webp" id="india-map" class="india-map" alt="Map of trips" loading="lazy">
-                <div class="map-glow"></div>
+            <div class="map-wrapper" style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div id="leaflet-map" style="width: 100%; height: 500px; z-index: 1;"></div>
+                <div class="map-glow" style="pointer-events: none;"></div>
             </div>
         </div>
     </section>
