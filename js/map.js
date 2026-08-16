@@ -101,7 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
         Rameshwaram: [9.2876, 79.3129],
         Kamakhya: [26.1668, 91.7061],
         Kalighat: [22.5204, 88.3476],
-        VaishnoDevi: [33.0298, 74.9482]
+        VaishnoDevi: [33.0298, 74.9482],
+        Mallikarjuna: [16.0730, 78.8711],
+        Jwalamukhi: [31.8789, 76.3216],
+        KarniMata: [27.7909, 73.3444]
     };
 
     const hydCoords = cities.Hyderabad;
@@ -115,7 +118,19 @@ document.addEventListener('DOMContentLoaded', () => {
         weight: 2
     }).addTo(map).bindPopup('<b>Hyderabad</b> (Departure Hub)');
 
-    const multiCityRoutes = new Set(['Varanasi', 'Prayagraj', 'Ayodhya', 'Lonavala', 'Trimbakeshwar']);
+    const jyotirlingaRoute = [
+        'Hyderabad', 'Mallikarjuna', 'Rameshwaram', 'Bhimashankar', 'Trimbakeshwar', 
+        'Grishneshwar', 'Somnath', 'Nageshwar', 'Omkareshwar', 'Mahakaleshwar', 
+        'Kedarnath', 'Varanasi', 'Baidyanath', 'Hyderabad'
+    ];
+    const shaktipeethRoute = [
+        'Hyderabad', 'Kalighat', 'Kamakhya', 'Jwalamukhi', 'VaishnoDevi', 'KarniMata', 'Hyderabad'
+    ];
+
+    const multiCityRoutes = new Set([
+        'Varanasi', 'Prayagraj', 'Ayodhya', 'Lonavala', 'Trimbakeshwar',
+        ...jyotirlingaRoute, ...shaktipeethRoute
+    ]);
 
     // Draw destination lines and markers
     for (const [city, coords] of Object.entries(cities)) {
@@ -175,5 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
         weight: 2,
         dashArray: '5, 5',
         opacity: 0.4
+    }).addTo(map);
+
+    // Custom Round Route: 12 Jyotirlinga
+    L.polyline(jyotirlingaRoute.map(c => cities[c]), {
+        color: '#ff9800',
+        weight: 2,
+        dashArray: '5, 5',
+        opacity: 0.6
+    }).addTo(map);
+
+    // Custom Round Route: Shaktipeetham
+    L.polyline(shaktipeethRoute.map(c => cities[c]), {
+        color: '#e91e63',
+        weight: 2,
+        dashArray: '5, 5',
+        opacity: 0.6
     }).addTo(map);
 });

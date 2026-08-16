@@ -505,7 +505,7 @@
                     <div class="card-meta">\
                         <span><i class="fa-regular fa-calendar"></i> ' + trip.date + '</span>\
                         <span><i class="fa-regular fa-clock"></i> ' + trip.duration + '</span>\
-                        <span><i class="fa-solid fa-campground"></i> ' + trip.stay + '</span>\
+                        <span><i class="fa-solid fa-car"></i> 6 Seats / Trip</span>\
                     </div>\
                     <p class="card-desc">' + trip.desc + '</p>\
                     <div class="card-expanded-content">\
@@ -578,7 +578,7 @@
                 <div class="modal-meta">\
                     <span><i class="fa-regular fa-calendar"></i> ' + trip.date + '</span>\
                     <span><i class="fa-regular fa-clock"></i> ' + trip.duration + '</span>\
-                    <span><i class="fa-solid fa-campground"></i> ' + trip.stay + '</span>\
+                    <span><i class="fa-solid fa-car"></i> 6 Seats / Trip</span>\
                     <span><i class="fa-solid fa-indian-rupee-sign"></i> ' + trip.price.toLocaleString('en-IN') + ' per seat</span>\
                 </div>\
                 <p class="modal-desc">' + trip.desc + '</p>\

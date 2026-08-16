@@ -42,7 +42,23 @@ const cities = {
     Nanded: [77.3090, 19.1492],
     Varanasi: [83.0039, 25.3176],
     Prayagraj: [81.8463, 25.4358],
-    Ayodhya: [82.1998, 26.7922]
+    Ayodhya: [82.1998, 26.7922],
+    Mallikarjuna: [78.8711, 16.0730],
+    Rameshwaram: [79.3129, 9.2876],
+    Bhimashankar: [73.5359, 19.0720],
+    Trimbakeshwar: [73.5298, 19.9324],
+    Grishneshwar: [75.1706, 20.0247],
+    Somnath: [70.4011, 20.8880],
+    Nageshwar: [69.0931, 22.3340],
+    Omkareshwar: [76.1557, 22.2447],
+    Mahakaleshwar: [75.7682, 23.1827],
+    Kedarnath: [79.0669, 30.7352],
+    Baidyanath: [86.6997, 24.4921],
+    Kalighat: [88.3426, 22.5204],
+    Kamakhya: [91.7039, 26.1666],
+    Jwalamukhi: [76.3216, 31.8789],
+    'Vaishno Devi': [74.9490, 33.0308],
+    'Karni Mata': [73.3444, 27.7909]
 };
 
 https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.geojson', (resp) => {
@@ -81,11 +97,35 @@ https.get('https://raw.githubusercontent.com/datameet/maps/master/Country/india-
             svgHtml += svgStyles;
             svgHtml += '<path class="india-outline" d="' + svgPath.trim() + '" />';
             
-            // Draw routes first so they are under dots
+            const jyotirlingaRoute = [
+                'Hyderabad', 'Mallikarjuna', 'Rameshwaram', 'Bhimashankar', 'Trimbakeshwar', 
+                'Grishneshwar', 'Somnath', 'Nageshwar', 'Omkareshwar', 'Mahakaleshwar', 
+                'Kedarnath', 'Varanasi', 'Baidyanath', 'Hyderabad'
+            ];
+            const shaktipeethRoute = [
+                'Hyderabad', 'Kalighat', 'Kamakhya', 'Jwalamukhi', 'Vaishno Devi', 'Karni Mata', 'Hyderabad'
+            ];
+            const loopCities = new Set([...jyotirlingaRoute, ...shaktipeethRoute]);
+
+            // Draw regular routes first so they are under dots
             for (const [city, coords] of Object.entries(cities)) {
-                if (city === 'Hyderabad') continue;
+                if (city === 'Hyderabad' || loopCities.has(city)) continue;
                 const pt = projection(coords);
                 svgHtml += '<line class="route-line" x1="' + hyd[0] + '" y1="' + hyd[1] + '" x2="' + pt[0] + '" y2="' + pt[1] + '" />';
+            }
+
+            // Draw Jyotirlinga loop
+            for (let i = 0; i < jyotirlingaRoute.length - 1; i++) {
+                const pt1 = projection(cities[jyotirlingaRoute[i]]);
+                const pt2 = projection(cities[jyotirlingaRoute[i+1]]);
+                svgHtml += '<line class="route-line" style="stroke:#ff9800; opacity:0.8" x1="' + pt1[0] + '" y1="' + pt1[1] + '" x2="' + pt2[0] + '" y2="' + pt2[1] + '" />';
+            }
+
+            // Draw Shaktipeeth loop
+            for (let i = 0; i < shaktipeethRoute.length - 1; i++) {
+                const pt1 = projection(cities[shaktipeethRoute[i]]);
+                const pt2 = projection(cities[shaktipeethRoute[i+1]]);
+                svgHtml += '<line class="route-line" style="stroke:#e91e63; opacity:0.8" x1="' + pt1[0] + '" y1="' + pt1[1] + '" x2="' + pt2[0] + '" y2="' + pt2[1] + '" />';
             }
 
             // Draw hub

@@ -107,7 +107,7 @@ trips.forEach(trip => {
             <div class="trip-meta-tags">
                 <span><i class="fa-regular fa-calendar"></i> ${trip.date}</span>
                 <span><i class="fa-regular fa-clock"></i> ${trip.duration}</span>
-                <span><i class="fa-solid fa-campground"></i> ${trip.stay}</span>
+                <span><i class="fa-solid fa-car"></i> 6 Seats per trip</span>
             </div>
         </div>
     </header>
@@ -126,7 +126,7 @@ trips.forEach(trip => {
             <div class="price-huge">₹${trip.price.toLocaleString('en-IN')} <span style="font-size:1rem;color:var(--text-secondary)">per seat</span></div>
             <button class="btn btn-primary" onclick="bookTrip('${trip.name}', '${trip.date}', '${trip.price}')"><i class="fa-brands fa-whatsapp"></i> Book on WhatsApp</button>
             <button class="btn btn-glass" onclick="shareTripDetail('${trip.name}')"><i class="fa-solid fa-share-nodes"></i> Share Trip</button>
-            <p class='disclaimer' style='font-size:0.85rem; color:var(--text-muted); margin-top:1rem;'>*Note: This price includes travel only. Food and accommodation are included only if explicitly mentioned in the package highlights.</p>
+            <p class='disclaimer' style='font-size:0.85rem; color:var(--text-muted); margin-top:1rem;'>*Note: This price is calculated based on travel only, assuming 6 seats per trip. Food and accommodation are not included.</p>
         </div>
     </main>
 

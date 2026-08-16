@@ -1,4 +1,4 @@
-const CACHE_NAME = `sstravels-no-cache-1786847435071`; // Timestamp versioned for the purge
+const CACHE_NAME = `sstravels-no-cache-1786847550000`; // Timestamp versioned for the purge
 
 self.addEventListener('install', function (e) {
     self.skipWaiting(); // Force the waiting service worker to become the active service worker
