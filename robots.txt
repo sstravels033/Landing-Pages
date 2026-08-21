@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sstravels033.github.io/Landing-Pages/sitemap.xml
+Sitemap: https://sstravels.site/sitemap.xml
